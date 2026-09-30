@@ -2,32 +2,52 @@ import { Link } from "react-router-dom";
 
 const materials = [
   {
-    name: "CEPPO DI GRÉ",
-    type: "ITALIAN LIMESTONE",
-    code: "AS-01",
+    category: "SEDIMENTARY BRECCIA",
+    badge: "12MM RECTIFIED",
+    location: "LOMBARDY SPECIMEN",
+    code: "CPG-901",
+    name: "CEPPO DI GRÉ BRECCIA",
     description:
-      "Architectural stone with a distinctive mineral aggregate and restrained tonal variation.",
+      "Signature sedimentary rock with characteristic rounded dolomitic aggregate and mineral depth.",
+    finish: "HONED MATTE • INDOOR & FACADE",
+    image: "/images/lineage-01.jpg",
+    badgeStyle: "black",
   },
   {
-    name: "CALACATTA VENA",
-    type: "BOOKMATCHED MARBLE",
-    code: "AS-02",
+    category: "APUAN MARBLE MATERIAL",
+    badge: "BOOKMATCH A+B",
+    location: "CARRARA BASIN",
+    code: "CVO-410",
+    name: "CALACATTA VAGLI ORO",
     description:
-      "High-contrast veining selected for continuous slab compositions and monumental interiors.",
+      "Continuous bookmatched veining with subtle amber-gold crystallization across the slab.",
+    finish: "HONED SATIN • 6MM & 12MM",
+    image: "/images/lineage-02.jpg",
+    badgeStyle: "copper",
   },
   {
-    name: "TERRA FERRATA",
-    type: "VOLCANIC CERAMIC",
-    code: "AS-03",
+    category: "3D ARCHITECTURAL RELIEF",
+    badge: "WALL MONOLITHIC",
+    location: "FRIULI CALCAREOUS",
+    code: "PPF-208",
+    name: "PIETRA PIASENTINA FLUTED",
     description:
-      "Hand-finished volcanic surface developed for tactile architectural applications.",
+      "Linear 12mm fluted tactile relief with crystalline calcite inclusions. Designed for architectural walls.",
+    finish: "FLUTED CANE • ACOUSTIC MATTE",
+    image: "/images/lineage-03.jpg",
+    badgeStyle: "black",
   },
   {
-    name: "BASALT VEIL",
-    type: "PORCELAIN STONEWARE",
-    code: "AS-04",
+    category: "EXTRUSIVE VOLCANIC",
+    badge: "20MM STRUCTURAL",
+    location: "VITERBO BASALT",
+    code: "BLS-064",
+    name: "BASALTINA LAVA STONE",
     description:
-      "Dense mineral surface with a deep graphite character and highly controlled finish.",
+      "Bush-hammered volcanic stone engineered for high-traffic wet areas and demanding exterior use.",
+    finish: "BUSH-HAMMERED • R11 FRICTION",
+    image: "/images/lineage-04.jpg",
+    badgeStyle: "black",
   },
 ];
 
@@ -54,23 +74,65 @@ const applications = [
   },
 ];
 
+const performanceItems = [
+  {
+    label: "DIMENSION SCALE",
+    value: "1600×3200",
+    title: "Monolithic Slab Envelope",
+    text:
+      "Zero-joint continuity for unbroken vertical facades, expansive kitchen monolithic islands, and floor-to-ceiling bath cladding.",
+  },
+  {
+    label: "HYDROPHOBIC PERFORMANCE",
+    value: "< 0.05%",
+    title: "Porous Absorption Barrier",
+    text:
+      "Fully vitrified dense porcelain matrix impervious to citrus acids, wine tannins, pooling water, and cryogenic thermal shock.",
+  },
+  {
+    label: "TRACTION STANDARD",
+    value: "R11 / 45+",
+    title: "PTV Pendulum Coefficient",
+    text:
+      "Engineered surface roughness imparting supreme anti-slip friction while maintaining smooth, velvety barefoot tactile comfort.",
+  },
+  {
+    label: "ECOLOGICAL LIFECYCLE",
+    value: "100%",
+    title: "Circular Recycled Minerals",
+    text:
+      "Manufactured in closed-loop water recirculation kilns with zero post-industrial waste and full EPD verification per ISO 14025.",
+  },
+];
+
 function ImagePlaceholder({
-  label = "FIGMA IMAGE ASSET",
+  src,
+  alt = "",
+  label = "",
   className = "",
 }) {
   return (
-    <div
-      className={`relative overflow-hidden bg-[#ddd8ce] ${className}`}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,#f3efe6_0,#d9d3c8_35%,#bbb5aa_100%)]" />
+    <div className={`relative overflow-hidden ${className}`}>
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+          }}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      ) : (
+        <div className="absolute inset-0 bg-[#d8d4cb]" />
+      )}
 
-      <div className="absolute inset-0 opacity-30 bg-[linear-gradient(125deg,transparent_35%,#ffffff_36%,transparent_38%,transparent_60%,#ffffff_61%,transparent_63%)]" />
-
-      <div className="absolute bottom-4 left-4 border border-[#24231f]/30 bg-[#f5f2ea]/80 px-3 py-2">
-        <span className="text-[8px] font-semibold tracking-[0.16em] text-[#45423c]">
-          {label}
-        </span>
-      </div>
+      {label && (
+        <div className="absolute bottom-4 left-4 border border-[#24231f]/20 bg-[#f5f2ea]/90 px-3 py-2">
+          <span className="text-[8px] font-semibold tracking-[0.16em] text-[#45423c]">
+            {label}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
@@ -87,6 +149,75 @@ function SectionLabel({ children }) {
   );
 }
 
+function MaterialCard({ material }) {
+  return (
+    <article className="group overflow-hidden bg-[#faf8f3]">
+      <div className="relative aspect-[0.8/1] overflow-hidden bg-[#ddd8ce]">
+        <img
+          src={material.image}
+          alt={material.name}
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+          }}
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+
+        <div className="absolute left-3 top-3 bg-[#f7f4ed]/95 px-2 py-[8px]">
+          <span className="font-serif text-[9px] tracking-[0.08em] text-[#3c3933]">
+            {material.category}
+          </span>
+        </div>
+
+        <div
+          className={`absolute right-3 top-3 px-3 py-[9px] ${
+            material.badgeStyle === "copper"
+              ? "bg-[#995021]"
+              : "bg-[#11110f]"
+          }`}
+        >
+          <span className="font-serif text-[9px] font-semibold tracking-[0.11em] text-white">
+            {material.badge}
+          </span>
+        </div>
+      </div>
+
+      <div className="px-4 pb-4 pt-4">
+        <div className="flex items-center justify-between gap-3">
+          <span className="font-serif text-[9px] uppercase tracking-[0.11em] text-[#56524a]">
+            {material.location}
+          </span>
+
+          <span className="whitespace-nowrap font-serif text-[8px] font-semibold uppercase tracking-[0.12em] text-[#96501f]">
+            REF: {material.code}
+          </span>
+        </div>
+
+        <h3 className="mt-2 font-serif text-[19px] font-semibold leading-[1.15] tracking-[-0.02em] text-[#26251f]">
+          {material.name}
+        </h3>
+
+        <p className="mt-2 min-h-[45px] text-[10px] leading-[1.7] text-[#5f5b54]">
+          {material.description}
+        </p>
+
+        <div className="mt-4 flex items-end justify-between border-t border-[#e0dcd3] pt-3">
+          <span className="max-w-[185px] font-serif text-[8px] font-semibold uppercase leading-[1.6] tracking-[0.13em] text-[#4b4841]">
+            {material.finish}
+          </span>
+
+          <button
+            type="button"
+            aria-label={`View ${material.name}`}
+            className="flex h-[32px] w-[32px] shrink-0 items-center justify-center bg-[#ebe7de] text-[21px] font-light leading-none text-[#302e29] transition-colors hover:bg-[#995021] hover:text-white"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function Home() {
   return (
     <main className="bg-[#f5f2ea]">
@@ -95,9 +226,9 @@ export default function Home() {
           HERO
       ===================================================== */}
 
-      <section className="mx-auto max-w-[1450px] px-6 pb-20 pt-16 lg:px-10 lg:pt-20">
+      <section className="mx-auto max-w-[1185px] px-6 pb-14 pt-16 sm:px-8 lg:px-0 lg:pt-20">
 
-        <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
 
           {/* LEFT */}
           <div>
@@ -106,7 +237,7 @@ export default function Home() {
               ARCHITECTURAL MINERAL ARCHIVE • EDITION 25/26
             </SectionLabel>
 
-            <h1 className="max-w-[650px] font-serif text-[52px] leading-[0.98] tracking-[-0.045em] sm:text-[64px] lg:text-[76px]">
+            <h1 className="max-w-[560px] font-serif text-[48px] leading-[0.96] tracking-[-0.045em] sm:text-[56px] lg:text-[62px]">
               SURFACES AS
               <br />
               PURE
@@ -114,28 +245,77 @@ export default function Home() {
               ARCHITECTURE
             </h1>
 
-            <p className="mt-8 max-w-[600px] text-[16px] leading-7 text-[#53504a] lg:text-[17px]">
+            <p className="mt-8 max-w-[600px] text-base leading-[1.8] tracking-[0.01em] text-text-secondary lg:text-[17px]">
               Ultra-large format porcelain stoneware, bookmatched Italian
-              marbles, and handcrafted volcanic ceramics engineered for
-              monumental residential and hospitality interiors.
+              marbles, and handcrafted colcanic ceramics engineered for
+              monnumental residential and hospitality interiors..
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
-
-              <Link
-                to="/surface-collections"
-                className="inline-flex min-h-[50px] items-center justify-center bg-[#171714] px-7 text-[10px] font-semibold tracking-[0.12em] text-white transition hover:bg-[#96501f]"
-              >
-                EXPLORE 2025/2026 ARCHIVE
-                <span className="ml-5 text-lg">→</span>
-              </Link>
+            <div className="mt-7 flex flex-nowrap items-center gap-3 overflow-visible">
 
               <button
-                className="inline-flex min-h-[50px] items-center justify-center border border-[#d8d3c9] bg-[#ebe7de] px-7 text-[10px] font-semibold tracking-[0.1em] text-[#292823] transition hover:border-[#171714]"
+                type="button"
+                className="flex h-[48px] w-[245px] flex-none items-center justify-center whitespace-nowrap bg-black px-5 text-[10px] font-semibold tracking-[0.08em] text-white transition-all duration-300 hover:bg-[#96501f]"
               >
-                <span className="mr-3">□</span>
-                REQUEST PHYSICAL SWATCH BOX
+                <span>
+                  EXPLORE 2025/2026 ARCHIVE
+                </span>
+
+                <span className="ml-4 text-[17px]">
+                  →
+                </span>
               </button>
+
+              <button
+                type="button"
+                className="flex h-[50px] flex-none items-center justify-center whitespace-nowrap bg-material px-7 text-[11px] tracking-[0.06em] text-text-primary transition-all duration-300 hover:bg-secondary"
+              >
+                <span className="mr-2">
+                  ▣
+                </span>
+
+                REQUEST PHYSICAL SWITCH BOX
+              </button>
+
+            </div>
+
+            <div className="mt-8 bg-[#f1eee6] px-4 py-4 sm:px-5">
+
+              <div className="grid grid-cols-2">
+
+                <div className="border-r border-[#d7d2c8] pr-4">
+                  <div className="font-serif text-[9px] uppercase tracking-[0.12em] text-[#55514a]">
+                    CONTINUOUS FORMAT
+                  </div>
+
+                  <div className="mt-2 font-serif text-[18px] font-semibold tracking-[-0.02em]">
+                    3200 × 1600 MM
+                  </div>
+                </div>
+
+                <div className="pl-4">
+                  <div className="font-serif text-[9px] uppercase tracking-[0.12em] text-[#55514a]">
+                    CALIBRATED GAUGE
+                  </div>
+
+                  <div className="mt-2 font-serif text-[18px] font-semibold tracking-[-0.02em]">
+                    6MM / 12MM / 20MM
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="mt-4 border-t border-[#d7d2c8] pt-4">
+
+                <div className="font-serif text-[9px] uppercase tracking-[0.12em] text-[#55514a]">
+                  LEED QUALIFICATION
+                </div>
+
+                <div className="mt-1 font-serif text-[18px] font-semibold text-[#96501f]">
+                  MR + EQ ELIGIBLE
+                </div>
+
+              </div>
 
             </div>
 
@@ -146,22 +326,43 @@ export default function Home() {
           <div className="relative">
 
             <ImagePlaceholder
-              label="HERO ARCHITECTURE IMAGE"
-              className="aspect-[1.08/0.88] w-full"
+              src="/images/home-hero.jpg"
+              alt="Architectural mineral surface interior"
+              className="aspect-[1.08/1.15] w-full"
             />
 
-            <div className="absolute bottom-5 left-5 bg-[#f5f2ea] px-5 py-4 shadow-sm">
+            <div className="absolute bottom-4 left-4 right-4 bg-[#f5f2ea] px-5 py-4 shadow-sm">
 
-              <div className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#8e4c21]">
-                FEATURED RESIDENCE
-              </div>
+              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 
-              <div className="mt-1 font-serif text-[15px]">
-                Mineral Bath Collection
-              </div>
+                <div>
 
-              <div className="mt-1 text-[8px] uppercase tracking-[0.12em] text-[#666159]">
-                CEPPO / NATURAL STONE / ARCHITECTURAL DETAIL
+                  <div className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#8e4c21]">
+                    SPEC REFERENCE: ATH-8820
+                  </div>
+
+                  <div className="mt-2 font-sans text-[16px] font-medium leading-snug text-black">
+                    Honed Roman Navona Travertine &
+                    <br />
+                    Fluted Ribbing
+                  </div>
+
+                </div>
+
+                <div className="flex gap-2">
+
+                  <span className="bg-[#ebe8df] px-3 py-2 text-[8px] font-bold tracking-[0.15em]">
+                    BOOKMATCHED
+                  </span>
+
+                  <span className="bg-[#ebe8df] px-3 py-2 text-[8px] font-bold tracking-[0.15em]">
+                    V2 VEIN
+                    <br />
+                    CONTROL
+                  </span>
+
+                </div>
+
               </div>
 
             </div>
@@ -169,6 +370,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
 
@@ -176,49 +378,38 @@ export default function Home() {
           PERFORMANCE STRIP
       ===================================================== */}
 
-      <section className="bg-[#24241f] text-[#f5f2ea]">
+      <section className="bg-[#292923] text-[#f5f2ea]">
 
-        <div className="mx-auto grid max-w-[1450px] grid-cols-2 divide-x divide-[#57564f] px-6 py-8 md:grid-cols-4 lg:px-10">
+        <div className="mx-auto grid max-w-[1450px] grid-cols-1 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
 
-          <div className="px-5 py-3 md:px-8">
-            <div className="font-serif text-3xl lg:text-4xl">
-              1600×3200
+          {performanceItems.map((item, index) => (
+            <div
+              key={item.label}
+              className={`border-white/20 px-5 py-8 lg:px-7 ${
+                index < 3
+                  ? "border-b sm:border-b-0 sm:border-r"
+                  : ""
+              }`}
+            >
+
+              <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#c6bfb2]">
+                {item.label}
+              </div>
+
+              <div className="mt-4 font-serif text-[48px] leading-none">
+                {item.value}
+              </div>
+
+              <h3 className="mt-5 font-sans text-[16px] font-semibold">
+                {item.title}
+              </h3>
+
+              <p className="mt-2 text-[12px] leading-6 text-[#bbb7ae]">
+                {item.text}
+              </p>
+
             </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.17em] text-[#bdb8ad]">
-              MAX FORMAT / MM
-            </div>
-          </div>
-
-          <div className="px-5 py-3 md:px-8">
-            <div className="font-serif text-3xl lg:text-4xl">
-              &lt; 0.05%
-            </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.17em] text-[#bdb8ad]">
-              WATER ABSORPTION
-            </div>
-          </div>
-
-          <div className="px-5 py-3 md:px-8">
-            <div className="font-serif text-3xl lg:text-4xl">
-              R11 / 45+
-            </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.17em] text-[#bdb8ad]">
-              SLIP / WEAR PERFORMANCE
-            </div>
-          </div>
-
-          <div className="px-5 py-3 md:px-8">
-            <div className="font-serif text-3xl lg:text-4xl">
-              100%
-            </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.17em] text-[#bdb8ad]">
-              ARCHITECTURAL TRACEABILITY
-            </div>
-          </div>
+          ))}
 
         </div>
 
@@ -229,76 +420,40 @@ export default function Home() {
           MATERIAL LINEAGE ARCHIVE
       ===================================================== */}
 
-      <section className="mx-auto max-w-[1450px] px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-[1185px] px-6 pb-20 pt-16 lg:px-0">
 
-        <div className="flex flex-col justify-between gap-6 border-b border-[#d5d0c5] pb-8 md:flex-row md:items-end">
+        {/* SECTION HEADER */}
+        <div className="grid items-end gap-8 border-b border-[#d5d0c5] pb-7 lg:grid-cols-[1.15fr_0.85fr]">
 
           <div>
 
             <SectionLabel>
-              MATERIAL LINEAGE ARCHIVE
+              CURATED SPECIMEN SERIES
             </SectionLabel>
 
-            <h2 className="max-w-[700px] font-serif text-4xl leading-[1.05] tracking-[-0.03em] md:text-5xl">
-              Mineral surfaces selected
-              <br />
-              for architectural continuity.
+            <h2 className="font-serif text-[42px] leading-[0.98] tracking-[-0.035em] sm:text-[48px] lg:text-[52px]">
+              MATERIAL LINEAGE ARCHIVE
             </h2>
 
           </div>
 
-          <Link
-            to="/surface-collections"
-            className="text-[9px] font-semibold uppercase tracking-[0.14em] underline underline-offset-4"
-          >
-            VIEW COMPLETE ARCHIVE →
-          </Link>
+          <p className="max-w-[445px] justify-self-end text-[14px] leading-[1.65] tracking-[0.005em] text-[#4f4c46]">
+            Geologically faithful stone extractions and rectified large-format
+            porcelain slabs categorized by mineral composition and architectural
+            relief.
+          </p>
 
         </div>
 
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* MATERIAL CARDS */}
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
           {materials.map((material) => (
-            <article
+            <MaterialCard
               key={material.code}
-              className="group border border-[#d9d4c9] bg-[#f8f6f0] transition hover:-translate-y-1"
-            >
-
-              <ImagePlaceholder
-                label={material.code}
-                className="aspect-[1.25/1]"
-              />
-
-              <div className="p-5">
-
-                <div className="text-[8px] font-semibold tracking-[0.15em] text-[#96501f]">
-                  {material.type}
-                </div>
-
-                <h3 className="mt-3 font-serif text-[21px]">
-                  {material.name}
-                </h3>
-
-                <p className="mt-3 text-[11px] leading-5 text-[#625f58]">
-                  {material.description}
-                </p>
-
-                <div className="mt-6 flex items-center justify-between border-t border-[#ddd8ce] pt-4">
-
-                  <span className="font-mono text-[8px] tracking-[0.12em]">
-                    {material.code}
-                  </span>
-
-                  <span className="text-[8px] font-semibold tracking-[0.1em] opacity-0 transition group-hover:opacity-100">
-                    VIEW DOSSIER →
-                  </span>
-
-                </div>
-
-              </div>
-
-            </article>
+              material={material}
+            />
           ))}
 
         </div>
@@ -348,10 +503,12 @@ export default function Home() {
 
             <div className="grid border-l border-[#d1ccc1] sm:grid-cols-2">
 
-              {applications.map((item) => (
+              {applications.map((item, index) => (
                 <div
                   key={item.number}
-                  className="border-b border-r border-[#d1ccc1] p-7 last:border-b-0 sm:nth-[3]:border-b-0"
+                  className={`border-r border-[#d1ccc1] p-7 ${
+                    index < 2 ? "border-b" : ""
+                  }`}
                 >
 
                   <div className="font-mono text-[9px] text-[#96501f]">
@@ -590,7 +747,10 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3">
 
-              <button className="border border-[#aaa59a] px-7 py-4 text-[9px] font-semibold tracking-[0.12em] transition hover:bg-[#f5f2ea] hover:text-[#20201c]">
+              <button
+                type="button"
+                className="border border-[#aaa59a] px-7 py-4 text-[9px] font-semibold tracking-[0.12em] transition hover:bg-[#f5f2ea] hover:text-[#20201c]"
+              >
                 REQUEST SPEC BOX
               </button>
 
@@ -681,9 +841,13 @@ export default function Home() {
                 Trade & Specifier
               </Link>
 
-              <div>Technical Assets</div>
+              <div>
+                Technical Assets
+              </div>
 
-              <div>Sample Box</div>
+              <div>
+                Sample Box
+              </div>
 
             </div>
 
