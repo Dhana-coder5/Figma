@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const materials = [
   {
@@ -218,7 +219,353 @@ function MaterialCard({ material }) {
   );
 }
 
+function SpatialApplicationMatrix() {
+  const [activeProgram, setActiveProgram] = useState(0);
+  const [jointWidth, setJointWidth] = useState(1.5);
+
+  const programs = [
+    {
+      title: "MASTER BATHROOM SUITE",
+      material:"Travertine & Fluted",
+      program:"PRIVATE WELLNESS SUITE",
+      surface:"NAVONA ROMAN TRAVERTINE &",
+      secondLine:"RIBBED FLUTING",
+      gauge:(
+        <>
+        12MM WALL / 20MM
+        <br />
+        VANITY
+        </>
+
+      ),
+      image:"/images/home-hero.jpg",
+
+    },
+    {
+      title:"HOTEL LOBBY MONOLITH",
+      material:"Ceppo di Gre Breccia",
+      program:"HOSPITALITY LOBBY",
+      surface:"CEPPO DI GRÉ BRECCIA",
+      secondLine:"MONOLITHIC WALL SYSTEM",
+      gauge:(
+        <>
+        12MM WALL /
+        <br />
+        20MM FLOOR
+        </>
+      ),
+      image:"/images/home-hero.jpg",
+    },
+    {
+      title:"MINIMMALIST KITCHEN ISLAND",
+      material:"Calacatta Ora Slab",
+      program :"PRIVATE RESIDENCE",
+      surface:"CALACATTA ORO",
+      secondLine:"MONOLITHIC ISLAND",
+      gauge:(
+        <>
+        12MM TOP /
+        <br />
+        20MM EDGE
+        </>
+      ),
+      image:"/images/home-hero.jpg",
+
+    },
+
+  ];
+  const active = programs[activeProgram];
+  const jointPositions =[
+    {
+      value:1,
+      label:"1.0mm Minimal Dry-Stack",
+    },
+     {
+      value: 2.5,
+      label: "2.5mm Standard",
+    },
+    {
+      value: 5,
+      label: "5.0mm Heritage Joint",
+    },
+
+  ]
+  return(
+    <div className="grid gap-6 lg:grid-cols-[464px_1fr]">
+      <div className="flex flex-col">
+
+        {/* HEADER */}
+        <div>
+
+          <SectionLabel>
+            INTERACTIVE SPEC VISUALIZER
+          </SectionLabel>
+
+          <h2 className="max-w-[440px] font-serif text-[38px] leading-[1.02] tracking-[-0.035em] sm:text-[40px]">
+            SPATIAL APPLICATION
+            <br />
+            MATRIX
+          </h2>
+
+          <p className="mt-5 max-w-[455px] text-[13px] leading-[1.8] text-[#4e4b45]">
+            Preview monolithic porcelain and fluted stoneware transitions
+            across signature architectural programs with calculated grout
+            margins.
+          </p>
+
+        </div>
+
+
+        {/* PROGRAM SELECTOR */}
+        <div className="mt-5 flex flex-col gap-[4px]">
+
+          {programs.map((program, index) => {
+            const selected = activeProgram === index;
+
+            return (
+              <button
+                key={program.title}
+                type="button"
+                onClick={() => setActiveProgram(index)}
+                className={`flex min-h-[35px] w-full items-center justify-between px-[9px] text-left transition-colors ${
+                  selected
+                    ? "bg-black text-white"
+                    : "bg-[#e9e6df] text-[#3a3833] hover:bg-[#dedad1]"
+                }`}
+              >
+
+                <span className="flex items-center gap-3">
+
+                  <span className="text-[12px] leading-none">
+                    {index === 0 && "♨"}
+                    {index === 1 && "▦"}
+                    {index === 2 && "⌑"}
+                  </span>
+
+                  <span className="font-serif text-[9px] font-semibold tracking-[0.13em]">
+                    {program.title}
+                  </span>
+
+                </span>
+
+                <span
+                  className={`font-serif text-[8px] tracking-[0.06em] ${
+                    selected
+                      ? "text-white/80"
+                      : "text-[#5d5952]"
+                  }`}
+                >
+                  {program.material}
+                </span>
+
+              </button>
+            );
+          })}
+
+        </div>
+
+
+        {/* JOINT WIDTH CONTROL */}
+        <div className="mt-7 bg-[#f1eee6] px-4 py-5">
+
+          <div className="flex items-center justify-between">
+
+            <span className="font-serif text-[9px] font-semibold tracking-[0.13em]">
+              ARCHITECTURAL JOINT WIDTH
+            </span>
+
+            <span className="font-serif text-[10px] font-semibold tracking-[0.04em] text-[#995021]">
+              {jointWidth.toFixed(1)} MM{" "}
+              {jointWidth === 1.5 ? "(Rectified)" : ""}
+            </span>
+
+          </div>
+
+
+          {/* SLIDER */}
+          <div className="relative mt-5">
+
+            <div className="h-[4px] w-full bg-[#dfdcd4]" />
+
+            <input
+              type="range"
+              min="1"
+              max="5"
+              step="0.5"
+              value={jointWidth}
+              onChange={(event) =>
+                setJointWidth(Number(event.target.value))
+              }
+              className="absolute inset-0 h-[4px] w-full cursor-pointer appearance-none bg-transparent"
+              aria-label="Architectural joint width"
+            />
+
+            <div
+              className="pointer-events-none absolute left-0 top-0 h-[4px] bg-[#24231f]"
+              style={{
+                width: `${((jointWidth - 1) / 4) * 100}%`,
+              }}
+            />
+
+            <div
+              className="pointer-events-none absolute top-1/2 h-[12px] w-[12px] -translate-y-1/2 rounded-full border-2 border-[#24231f] bg-[#f5f2ea]"
+              style={{
+                left: `calc(${((jointWidth - 1) / 4) * 100}% - 6px)`,
+              }}
+            />
+
+          </div>
+
+
+          {/* SLIDER LABELS */}
+          <div className="mt-4 grid grid-cols-3 text-[8px] text-[#625f58]">
+
+            {jointPositions.map((position, index) => (
+              <button
+                key={position.label}
+                type="button"
+                onClick={() => setJointWidth(position.value)}
+                className={`text-left transition-colors ${
+                  index === 1
+                    ? "text-center"
+                    : index === 2
+                    ? "text-right"
+                    : ""
+                } ${
+                  jointWidth === position.value
+                    ? "font-semibold text-[#24231f]"
+                    : ""
+                }`}
+              >
+                {position.label}
+              </button>
+            ))}
+
+          </div>
+
+        </div>
+
+
+        {/* BOTTOM ACTIONS */}
+        <div className="mt-7 flex items-center justify-between gap-4">
+
+          <button
+            type="button"
+            className="group text-left"
+          >
+            <span className="font-serif text-[9px] font-semibold tracking-[0.16em] text-[#995021]">
+              ENGINEERING CONSULTATION &
+            </span>
+
+            <br />
+
+            <span className="font-serif text-[9px] font-semibold tracking-[0.16em] text-[#995021]">
+              FABRICATION
+            </span>
+
+            <span className="ml-2 inline-block text-[16px] text-[#995021] transition-transform group-hover:translate-x-1">
+              ↗
+            </span>
+          </button>
+
+
+          <button
+            type="button"
+            className="flex h-[47px] min-w-[151px] items-center justify-center gap-3 bg-[#ebe7de] px-4 font-serif text-[9px] font-semibold tracking-[0.12em] transition-colors hover:bg-[#dedad1]"
+          >
+            <span className="text-[14px]">
+              ↓
+            </span>
+
+            <span>
+              BIM SPECS
+              <br />
+              (.RFA)
+            </span>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      {/* =================================================
+          RIGHT IMAGE
+      ================================================= */}
+
+      <div className="relative min-h-[500px] overflow-hidden bg-[#d8d2c7]">
+
+        <img
+          src={active.image}
+          alt={active.surface}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          onError={(event) => {
+            event.currentTarget.style.display = "none";
+          }}
+        />
+
+
+        {/* IMAGE OVERLAY */}
+        <div className="absolute bottom-4 left-4 right-4 bg-[#f5f2ea] px-4 py-4 sm:px-5">
+
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+
+            {/* PROGRAM / MATERIAL */}
+            <div>
+
+              <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#995021]">
+                PROGRAM: {active.program}
+              </div>
+
+              <h3 className="mt-2 max-w-[360px] font-serif text-[18px] font-semibold leading-[1.15] tracking-[-0.015em] text-[#25241f]">
+                {active.surface}
+                <br />
+                {active.secondLine}
+              </h3>
+
+            </div>
+
+
+            {/* GAUGE + DOSSIER */}
+            <div className="flex shrink-0 items-center gap-4">
+
+              <div className="text-right">
+
+                <div className="text-[8px] font-semibold uppercase tracking-[0.13em] text-[#736f67]">
+                  NOMINAL GAUGE
+                </div>
+
+                <div className="mt-1 font-serif text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.1em] text-[#25241f]">
+                  {active.gauge}
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                className="flex h-[40px] w-[90px] items-center justify-center bg-black px-3 text-left text-white transition-colors hover:bg-[#995021]"
+              >
+                <span className="font-serif text-[8px] font-semibold leading-[1.4] tracking-[0.14em]">
+                  FULL
+                  <br />
+                  DOSSIER
+                </span>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
 export default function Home() {
+
   return (
     <main className="bg-[#f5f2ea]">
 
@@ -465,13 +812,13 @@ export default function Home() {
           SPATIAL APPLICATION MATRIX
       ===================================================== */}
 
-      <section className="border-y border-[#d8d3c8] bg-[#eeebe3]">
+      <section className="bg-[#f5f2ea] py-0">
 
-        <div className="mx-auto max-w-[1450px] px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-[1185px] bg-[#fffefa] px-7 py-6 sm:px-8 lg:px-7 lg:py-6">
 
-          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+         {  /*   <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
 
-            <div>
+        <div>
 
               <SectionLabel>
                 SPATIAL APPLICATION MATRIX
@@ -528,9 +875,11 @@ export default function Home() {
                 </div>
               ))}
 
-            </div>
+            </div   
 
           </div>
+        */}
+        <SpatialApplicationMatrix />
 
         </div>
 
@@ -538,46 +887,52 @@ export default function Home() {
 
 
       {/* =====================================================
-          PORCELAIN VS QUARRIED BLOCK
+          PORCELAIN VS QUARRIED BLOCK  -- session 3 on home 
       ===================================================== */}
 
-      <section className="mx-auto max-w-[1450px] px-6 py-20 lg:px-10">
+      <section className="bg-[#f5f2ea] ">
+        <div className ="mx-auto max-w-[1185px] px-6 py-16 lg:px-0">
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[480px_1fr]">
+
+          {/*   Left allignment */}
 
           <div>
-
+        
             <SectionLabel>
-              MATERIAL SYSTEM
+              ENGINEERING COMPARISON
             </SectionLabel>
 
-            <h2 className="font-serif text-4xl leading-[1.05] tracking-[-0.03em] md:text-5xl">
-              Mineral porcelain
+           <h2 className="max-w-[470px] font-serif text-[40px] leading-[1.03] tracking-[-0.04em] sm:text-[44px]">
+              MINERAL PORCELIAN VS.
               <br />
-              vs. quarried block.
+               QUARRIED BLOCK
             </h2>
 
-            <p className="mt-7 max-w-[570px] text-[12px] leading-6 text-[#5d5951]">
-              The archive pairs natural mineral references with engineered
-              surfaces that reproduce architectural depth while offering
-              predictable technical performance and repeatable fabrication.
+            <p className="mt-6 max-w-[465px] text-[13px] leading-[1.75] text-[#4f4c46]">
+                While natural unsealed quarry stone remains prone to iron
+          oxidation, deep organic staining, and fracture cleavage,
+          Atelier engineered porcelain combines authentic geological
+          aesthetics with zero chemical sensitivity and calibrated
+          0.2mm precision tolerances.
             </p>
 
-          </div>
+      <div className="mt-5 overflow-hidden">
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] bg-[#e8e4dc]">
 
+      
 
-          <div className="grid grid-cols-2 border border-[#d4cfc4]">
+              <div className="px-2 py-3 font-serif text-[9px] font-semibold tracking-[0.14em] text-[#59564f]">
+                  PARAMETER
+                  </div>
 
-            <div className="border-r border-[#d4cfc4]">
-
-              <div className="border-b border-[#d4cfc4] p-5">
-
-                <div className="text-[8px] font-semibold tracking-[0.15em] text-[#96501f]">
-                  ENGINEERED
+                <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.12em] text-[#995021]">
+                  ATELIER SLABS
                 </div>
 
-                <div className="mt-2 font-serif text-xl">
-                  PORCELAIN
+                <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.1em] text-[#59564f]">
+                  
+                  RAW QUARRY STONE
                 </div>
 
               </div>
@@ -631,6 +986,7 @@ export default function Home() {
 
           </div>
 
+        </div>
         </div>
 
       </section>
