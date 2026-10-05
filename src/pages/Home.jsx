@@ -885,348 +885,462 @@ export default function Home() {
 
       </section>
 
+{/* =====================================================
+    PORCELAIN VS QUARRIED BLOCK -- SESSION 3 ON HOME
+===================================================== */}
 
-      {/* =====================================================
-          PORCELAIN VS QUARRIED BLOCK  -- session 3 on home 
-      ===================================================== */}
+<section className="bg-[#f5f2ea]">
 
-      <section className="bg-[#f5f2ea] ">
-        <div className ="mx-auto max-w-[1185px] px-6 py-16 lg:px-0">
+  <div className="mx-auto max-w-[1185px] px-6 py-16 lg:px-0">
 
-        <div className="grid gap-8 lg:grid-cols-[480px_1fr]">
+    <div className="grid gap-8 lg:grid-cols-[480px_1fr]">
 
-          {/*   Left allignment */}
+      {/* =================================================
+          LEFT — ENGINEERING COMPARISON
+      ================================================= */}
 
-          <div>
-        
-            <SectionLabel>
-              ENGINEERING COMPARISON
-            </SectionLabel>
+      <div className="w-full">
 
-           <h2 className="max-w-[470px] font-serif text-[40px] leading-[1.03] tracking-[-0.04em] sm:text-[44px]">
-              MINERAL PORCELIAN VS.
-              <br />
-               QUARRIED BLOCK
-            </h2>
+        <SectionLabel>
+          ENGINEERING COMPARISON
+        </SectionLabel>
 
-            <p className="mt-6 max-w-[465px] text-[13px] leading-[1.75] text-[#4f4c46]">
-                While natural unsealed quarry stone remains prone to iron
+        <h2 className="max-w-[470px] font-serif text-[40px] leading-[1.03] tracking-[-0.04em] sm:text-[44px]">
+          MINERAL PORCELIAN VS.
+          <br />
+          QUARRIED BLOCK
+        </h2>
+
+        <p className="mt-6 max-w-[465px] text-[13px] leading-[1.75] text-[#4f4c46]">
+          While natural unsealed quarry stone remains prone to iron
           oxidation, deep organic staining, and fracture cleavage,
           Atelier engineered porcelain combines authentic geological
           aesthetics with zero chemical sensitivity and calibrated
           0.2mm precision tolerances.
-            </p>
+        </p>
 
-      <div className="mt-5 overflow-hidden">
+
+        {/* COMPARISON TABLE */}
+
+        <div className="mt-5 overflow-hidden">
+
+          {/* TABLE HEADER */}
           <div className="grid grid-cols-[1.2fr_1fr_1fr] bg-[#e8e4dc]">
 
+            <div className="px-2 py-3 font-serif text-[9px] font-semibold tracking-[0.14em] text-[#59564f]">
+              PARAMETER
+            </div>
+
+            <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.12em] text-[#995021]">
+              ATELIER SLABS
+            </div>
+
+            <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.1em] text-[#59564f]">
+              RAW QUARRY STONE
+            </div>
+
+          </div>
+
+
+          {/* ROW 1 */}
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] border-b border-[#e0dbd1] bg-[#faf8f3]">
+
+            <div className="px-2 py-[10px] font-serif text-[9px] tracking-[0.09em] text-[#5a574f]">
+              FLEXURAL STRENGTH
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] font-semibold text-[#995021]">
+              ≥ 55 N/mm²
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] text-[#55524c]">
+              12 - 18 N/mm²
+            </div>
+
+          </div>
+
+
+          {/* ROW 2 */}
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] border-b border-[#e0dbd1] bg-[#eeebe4]">
+
+            <div className="px-2 py-[10px] font-serif text-[9px] tracking-[0.09em] text-[#5a574f]">
+              ACID RESISTANCE
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] font-semibold text-[#995021]">
+              Class A (Unharmed)
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] text-[#55524c]">
+              Severe Etching
+            </div>
+
+          </div>
+
+
+          {/* ROW 3 */}
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] border-b border-[#e0dbd1] bg-[#faf8f3]">
+
+            <div className="px-2 py-[10px] font-serif text-[9px] tracking-[0.09em] text-[#5a574f]">
+              THERMAL EXPANSION
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] font-semibold text-[#995021]">
+              &lt; 6.5 × 10⁻⁶ °C⁻¹
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] text-[#55524c]">
+              Variable Cracking
+            </div>
+
+          </div>
+
+
+          {/* ROW 4 */}
+          <div className="grid grid-cols-[1.2fr_1fr_1fr] bg-[#eeebe4]">
+
+            <div className="px-2 py-[10px] font-serif text-[9px] tracking-[0.09em] text-[#5a574f]">
+              SEALING CYCLES
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] font-semibold text-[#995021]">
+              Zero Maintenance
+            </div>
+
+            <div className="px-2 py-[10px] text-[10px] text-[#55524c]">
+              Bi-Annual Resealing
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {/* =================================================
+          RIGHT — LAB CERTIFIED PANEL
+      ================================================= */}
+
+      <div className="w-full bg-[#fffefa] px-7 py-7">
+
+        {/* PANEL HEADER */}
+        <div className="flex items-center justify-between gap-4">
+
+          <div className="font-serif text-[10px] font-semibold tracking-[0.08em] text-[#25241f]">
+            POROSITY & WATER ABSORPTION MATRIX (ISO 10545-3)
+          </div>
+
+          <div className="whitespace-nowrap font-serif text-[10px] tracking-[0.09em] text-[#995021]">
+            LAB-CERTIFIED
+          </div>
+
+        </div>
+
+
+        {/* CHART */}
+
+        <div className="relative mt-7 h-[208px] overflow-hidden bg-[#f2efe7]">
+
+          {/* GRID LINES */}
+          <div className="absolute left-[13%] right-[9%] top-[42px] h-px bg-[#e2ded5]" />
+
+          <div className="absolute left-[13%] right-[9%] top-[87px] h-px bg-[#e2ded5]" />
+
+          <div className="absolute left-[13%] right-[9%] top-[132px] h-px bg-[#e2ded5]" />
+
+          <div className="absolute bottom-[43px] left-[13%] right-[9%] h-px bg-[#cfcac0]" />
+
+
+          {/* BAR 1 */}
+          <div className="absolute bottom-[43px] left-[18%] w-[62px]">
+
+            <div className="mb-2 text-center font-serif text-[8px] font-semibold text-[#34322d]">
+              2.4%
+            </div>
+
+            <div className="h-[105px] bg-[#e6e2da]" />
+
+          </div>
+
+
+          {/* BAR 2 */}
+          <div className="absolute bottom-[43px] left-[39%] w-[62px]">
+
+            <div className="mb-2 text-center font-serif text-[8px] font-semibold text-[#34322d]">
+              1.3%
+            </div>
+
+            <div className="h-[74px] bg-[#e6e2da]" />
+
+          </div>
+
+
+          {/* BAR 3 */}
+          <div className="absolute bottom-[43px] left-[60%] w-[62px]">
+
+            <div className="mb-2 text-center font-serif text-[8px] font-semibold text-[#34322d]">
+              0.3%
+            </div>
+
+            <div className="h-[22px] bg-[#e6e2da]" />
+
+          </div>
+
+
+          {/* BAR 4 */}
+          <div className="absolute bottom-[43px] right-[12%] w-[62px]">
+
+            <div className="mb-2 text-center font-serif text-[8px] font-semibold text-[#995021]">
+              0.03%
+            </div>
+
+            <div className="h-[7px] bg-[#995021]" />
+
+            <div className="mt-[10px] text-center font-serif text-[7px] font-semibold tracking-[0.03em] text-[#995021]">
+              ATELIER PORCELAIN
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* PERFORMANCE CARDS */}
+
+        <div className="mt-7 grid gap-4 sm:grid-cols-3">
+
+          {/* MOHS */}
+          <div className="bg-[#f1eee6] px-3 py-3">
+
+            <div className="font-serif text-[9px] tracking-[0.1em] text-[#5f5b54]">
+              MOHS HARDNESS
+            </div>
+
+            <div className="mt-1 font-serif text-[20px] font-semibold leading-none">
+              GRADE 8
+            </div>
+
+            <div className="mt-2 text-[9px] leading-4 text-[#5f5b54]">
+              Knife blade scratch-proof
+            </div>
+
+          </div>
+
+
+          {/* TEMPERATURE */}
+          <div className="bg-[#f1eee6] px-3 py-3">
+
+            <div className="font-serif text-[9px] tracking-[0.1em] text-[#5f5b54]">
+              MAX OPERATING TEMP
+            </div>
+
+            <div className="mt-1 font-serif text-[20px] font-semibold leading-none">
+              1,250 °C
+            </div>
+
+            <div className="mt-2 text-[9px] leading-4 text-[#5f5b54]">
+              Direct hot pan placement
+            </div>
+
+          </div>
+
+
+          {/* UV */}
+          <div className="bg-[#f1eee6] px-3 py-3">
+
+            <div className="font-serif text-[9px] tracking-[0.1em] text-[#5f5b54]">
+              UV STABILITY
+            </div>
+
+            <div className="mt-1 font-serif text-[20px] font-semibold leading-none">
+              ΔE &lt; 0.1
+            </div>
+
+            <div className="mt-2 text-[9px] leading-4 text-[#5f5b54]">
+              Zero sun yellowing
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
       
+      {/*  ARCHITECTURAL VERIFICATION */}
+      <section className="bg-[#f5f2ea]">
+        <div className="mx-auto max-w-[1185px] px-6 py-20 lg:px-0">
+          <div className="flex items-center justify-center gap-2">
 
-              <div className="px-2 py-3 font-serif text-[9px] font-semibold tracking-[0.14em] text-[#59564f]">
-                  PARAMETER
-                  </div>
+      <span className="font-serif text-[10px] font-semibold text-[#995021]">
+        99
+      </span>
 
-                <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.12em] text-[#995021]">
-                  ATELIER SLABS
-                </div>
+      <span className="h-[7px] w-[7px] rounded-full bg-[#995021]" />
 
-                <div className="px-2 py-3 text-center font-serif text-[9px] font-semibold tracking-[0.1em] text-[#59564f]">
-                  
-                  RAW QUARRY STONE
-                </div>
+      <span className="font-serif text-[9px] font-semibold uppercase tracking-[0.17em] text-[#995021]">
+        ARCHITECTURAL VERIFICATION
+      </span>
 
-              </div>
+    </div>
+    {/*   QUOTE session */}
+ <blockquote className="mx-auto mt-7 max-w-[960px] text-center font-serif text-[30px] italic leading-[1.7] tracking-[-0.02em] text-[#292722] sm:text-[34px] lg:text-[37px]">
 
-              {[
-                "CONSISTENT FORMAT",
-                "CONTROLLED VARIATION",
-                "LOW ABSORPTION",
-                "REPEATABLE SUPPLY",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="border-b border-[#d4cfc4] px-5 py-4 text-[9px] tracking-[0.07em] last:border-b-0"
-                >
-                  {item}
-                </div>
-              ))}
+      “Atelier Surfaces provides our studio with the elusive union of
+      <br className="hidden lg:block" />
+      monumental scale and geological fidelity. We specified their continuous
+      <br className="hidden lg:block" />
+      Ceppo and fluted Pietra panels across the Aman Kyoto residences without
+      <br className="hidden lg:block" />
+      a single grain calibration mismatch.”
 
-            </div>
+    </blockquote>
+
+    {/* AUTHOR */}
+    <div className="mt-8 text-center">
+
+      <div className="font-sans text-[16px] font-bold tracking-[-0.01em] text-[#292722]">
+        MATTEO CITTERIO, RIBA
+      </div>
+
+      <div className="mt-2 font-serif text-[9px] uppercase tracking-[0.12em] text-[#666159]">
+        PRINCIPAL PARTNER • STUDIO CITTERIO & ASSOCIATES, MILAN / LONDON
+      </div>
+
+    </div>
+
+    {/* PRACTICES STRIP */}
+    <div className="mt-12 bg-[#f0ede5] px-8 py-7">
+       <div className="text-center font-serif text-[9px] font-semibold uppercase tracking-[0.15em] text-[#4f4c45]">
+        SPECIFIED BY LEADING ARCHITECTURAL PRACTICES WORLDWIDE
+      </div>
 
 
-            <div>
+      <div className="mt-7 grid grid-cols-2 items-center gap-x-8 gap-y-7 text-center sm:grid-cols-3 lg:grid-cols-6">
 
-              <div className="border-b border-[#d4cfc4] p-5">
-
-                <div className="text-[8px] font-semibold tracking-[0.15em] text-[#96501f]">
-                  NATURAL
-                </div>
-
-                <div className="mt-2 font-serif text-xl">
-                  QUARRIED BLOCK
-                </div>
-
-              </div>
-
-              {[
-                "UNIQUE VEINING",
-                "NATURAL VARIATION",
-                "STONE CHARACTER",
-                "BLOCK DEPENDENCY",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="border-b border-[#d4cfc4] px-5 py-4 text-[9px] tracking-[0.07em] last:border-b-0"
-                >
-                  {item}
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-
+        <div className="font-serif text-[17px] font-semibold tracking-[-0.04em] text-[#656158]">
+          FOSTER+PTN
         </div>
+
+        <div className="font-serif text-[17px] font-semibold tracking-[-0.04em] text-[#656158]">
+          KPF ARCH
         </div>
+
+        <div className="font-serif text-[17px] font-semibold leading-[1.05] tracking-[-0.04em] text-[#656158]">
+          STUDIO
+          <br />
+          LIAIGRE
+        </div>
+
+        <div className="font-serif text-[17px] font-semibold tracking-[-0.04em] text-[#656158]">
+          GENSLER SPEC
+        </div>
+
+        <div className="font-serif text-[17px] font-semibold tracking-[-0.04em] text-[#656158]">
+          HERZOG&DM
+        </div>
+
+        <div className="font-serif text-[17px] font-semibold tracking-[-0.04em] text-[#656158]">
+          YABU PUSHEL
+        </div>
+
+      </div>
+    </div>
+    
+        </div>
+
+
+
 
       </section>
-
 
       {/* =====================================================
-          FEATURE IMAGE / EDITORIAL
-      ===================================================== */}
+    EXPRESS TRADE SERVICE / SPEC BOX CTA
+===================================================== */}
 
-      <section className="mx-auto max-w-[1450px] px-6 pb-20 lg:px-10">
+<section className="bg-[#f5f2ea]">
 
-        <div className="grid gap-0 lg:grid-cols-[1.25fr_0.75fr]">
+  <div className="mx-auto max-w-[1185px]">
 
-          <ImagePlaceholder
-            label="ARCHITECTURAL APPLICATION IMAGE"
-            className="aspect-[1.45/1] min-h-[360px]"
-          />
+    <div className="h-[240px] bg-[#050505] px-[48px]">
 
-          <div className="flex flex-col justify-between border border-[#d5d0c5] bg-[#ece9e1] p-8 lg:p-10">
+      <div className="grid h-full grid-cols-[650px_388px] items-start gap-[50px]">
 
-            <div>
+        {/* LEFT CONTENT */}
+        <div className="pt-[25px]">
 
-              <div className="font-mono text-[9px] tracking-[0.15em] text-[#96501f]">
-                ARCHIVE / 25—26
-              </div>
-
-              <h3 className="mt-8 font-serif text-3xl leading-[1.1]">
-                Architecture begins
-                <br />
-                at the surface.
-              </h3>
-
-              <p className="mt-6 text-[11px] leading-6 text-[#625f58]">
-                From slab selection to final joint, our material systems
-                are developed to preserve architectural intent through
-                every stage of specification and fabrication.
-              </p>
-
-            </div>
-
-            <div className="mt-10 border-t border-[#d2cdc2] pt-5">
-
-              <div className="text-[8px] uppercase tracking-[0.14em]">
-                ATELIER SURFACES
-              </div>
-
-              <div className="mt-1 text-[8px] uppercase tracking-[0.14em] text-[#716d64]">
-                ARCHITECTURAL MINERAL ARCHIVE
-              </div>
-
-            </div>
-
+          <div className="font-serif text-[9px] font-semibold uppercase tracking-[0.16em] text-[#d09a70]">
+            EXPRESS TRADE SERVICE
           </div>
+
+          <h2 className="mt-[10px] font-serif text-[38px] leading-[1.06] tracking-[-0.035em] text-[#f5f2ea]">
+            ORDER CUSTOM ARCHITECT'S
+            <br />
+            MINERAL SPEC BOX
+          </h2>
+
+          <p className="mt-[13px] max-w-[690px] text-[12px] leading-[1.8] text-[#c7c4bd]">
+            Receive a curated timber dossier containing four calibrated
+            100×200mm mineral specimens, continuous grout chips, technical
+            slip friction certificates, and high-res normal texture USB keys.
+          </p>
 
         </div>
 
-      </section>
+
+        {/* RIGHT BUTTONS */}
+        <div className="flex h-full items-center justify-end gap-[16px]">
+
+          {/* REQUEST SAMPLE KIT */}
+          <button
+            type="button"
+            className="flex h-[65px] w-[179px] shrink-0 items-center justify-center bg-[#9a511f] text-center transition-colors hover:bg-[#ad612c]"
+          >
+            <span className="font-serif text-[9px] font-semibold uppercase leading-[1.45] tracking-[0.12em] text-white">
+              REQUEST
+              <br />
+              SAMPLE KIT
+            </span>
+          </button>
 
 
-      {/* =====================================================
-          QUOTE
-      ===================================================== */}
-
-      <section className="border-y border-[#d8d3c8] bg-[#eeeae2]">
-
-        <div className="mx-auto max-w-[1100px] px-6 py-20 text-center">
-
-          <div className="mx-auto h-[1px] w-12 bg-[#96501f]" />
-
-          <blockquote className="mt-8 font-serif text-2xl leading-[1.45] tracking-[-0.02em] md:text-3xl lg:text-4xl">
-            “Material becomes architecture when the surface,
-            <br className="hidden md:block" />
-            fabrication and space are considered as one.”
-          </blockquote>
-
-          <div className="mt-7 text-[8px] font-semibold uppercase tracking-[0.18em] text-[#6a665e]">
-            ATELIER SURFACES / MATERIAL PRINCIPLE
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          SAMPLE BOX CTA
-      ===================================================== */}
-
-      <section className="bg-[#20201c] text-[#f5f2ea]">
-
-        <div className="mx-auto max-w-[1450px] px-6 py-16 lg:px-10">
-
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
-
-            <div>
-
-              <SectionLabel>
-                SPECIFIER ACCESS
-              </SectionLabel>
-
-              <h2 className="font-serif text-3xl leading-tight md:text-4xl">
-                ORDER CUSTOM ARCHITECT'S
-                <br />
-                MINERAL SPEC BOX
-              </h2>
-
-              <p className="mt-5 max-w-[600px] text-[11px] leading-6 text-[#bbb7ae]">
-                Request a curated physical material set containing selected
-                surfaces, finish references and technical specification
-                information for your project.
-              </p>
-
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-
-              <button
-                type="button"
-                className="border border-[#aaa59a] px-7 py-4 text-[9px] font-semibold tracking-[0.12em] transition hover:bg-[#f5f2ea] hover:text-[#20201c]"
-              >
-                REQUEST SPEC BOX
-              </button>
-
-              <Link
-                to="/trade-specifier"
-                className="bg-[#96501f] px-7 py-4 text-[9px] font-semibold tracking-[0.12em] transition hover:bg-[#b7672d]"
-              >
-                SPECIFIER ACCESS →
-              </Link>
-
-            </div>
-
-          </div>
+          {/* DOWNLOAD MASTER CATALOG */}
+          <button
+            type="button"
+            className="flex h-[65px] w-[193px] shrink-0 items-center justify-center bg-[#1d2022] text-center transition-colors hover:bg-[#272a2c]"
+          >
+            <span className="font-serif text-[9px] font-semibold uppercase leading-[1.45] tracking-[0.1em] text-white">
+              DOWNLOAD MASTER
+              <br />
+              CATALOG (PDF)
+            </span>
+          </button>
 
         </div>
 
-      </section>
+      </div>
 
+    </div>
 
+  </div>
+
+</section>
+
+      
       {/* =====================================================
           FOOTER
       ===================================================== */}
 
       <footer className="bg-[#f5f2ea]">
 
-        <div className="mx-auto grid max-w-[1450px] gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
-
-          <div>
-
-            <div className="font-serif text-lg font-bold">
-              ATELIER SURFACES
-            </div>
-
-            <p className="mt-3 max-w-[230px] text-[9px] leading-5 text-[#68645c]">
-              Architectural surfaces and porcelain slabs developed for
-              residential, hospitality and commercial interiors.
-            </p>
-
-          </div>
-
-
-          <div>
-
-            <div className="text-[8px] font-semibold tracking-[0.16em]">
-              EXPLORE
-            </div>
-
-            <div className="mt-4 space-y-3 text-[9px]">
-
-              <Link
-                to="/surface-collections"
-                className="block hover:text-[#96501f]"
-              >
-                Surface Collections
-              </Link>
-
-              <Link
-                to="/slab-dossier"
-                className="block hover:text-[#96501f]"
-              >
-                Slab Dossier
-              </Link>
-
-              <Link
-                to="/bespoke-fabrication"
-                className="block hover:text-[#96501f]"
-              >
-                Bespoke Fabrication
-              </Link>
-
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <div className="text-[8px] font-semibold tracking-[0.16em]">
-              SPECIFICATION
-            </div>
-
-            <div className="mt-4 space-y-3 text-[9px]">
-
-              <Link
-                to="/trade-specifier"
-                className="block hover:text-[#96501f]"
-              >
-                Trade & Specifier
-              </Link>
-
-              <div>
-                Technical Assets
-              </div>
-
-              <div>
-                Sample Box
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <div className="text-[8px] font-semibold tracking-[0.16em]">
-              CONTACT
-            </div>
-
-            <div className="mt-4 text-[9px] leading-5 text-[#68645c]">
-              GLOBAL ATELIER STUDIOS
-              <br />
-              ARCHITECTURAL MATERIALS
-              <br />
-              BY APPOINTMENT
-            </div>
-
-          </div>
-
-        </div>
+        
 
 
         <div className="border-t border-[#d8d3c8]">
@@ -1234,11 +1348,11 @@ export default function Home() {
           <div className="mx-auto flex max-w-[1450px] flex-col justify-between gap-3 px-6 py-5 text-[7px] uppercase tracking-[0.13em] text-[#77736b] md:flex-row lg:px-10">
 
             <span>
-              © 2025/26 ATELIER SURFACES
+             
             </span>
 
             <span>
-              ARCHITECTURAL MINERAL ARCHIVE
+              
             </span>
 
           </div>

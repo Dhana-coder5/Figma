@@ -412,46 +412,7 @@ export default function SlabDossier() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#181815] px-6 py-10 text-white/60 md:px-12 lg:px-[7%]">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-7 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div className="font-serif text-xl text-white">
-              ATELIER SURFACES
-            </div>
-
-            <div className="mt-2 text-[8px] uppercase tracking-[0.18em] text-white/35">
-              Architectural Surfaces & Porcelain Slabs
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-6 font-serif text-[9px] uppercase tracking-[0.16em]">
-            <Link to="/" className="hover:text-white">
-              Home
-            </Link>
-
-            <Link
-              to="/surface-collections"
-              className="hover:text-white"
-            >
-              Collections
-            </Link>
-
-            <Link
-              to="/bespoke-fabrication"
-              className="hover:text-white"
-            >
-              Fabrication
-            </Link>
-
-            <Link
-              to="/trade-specifier"
-              className="hover:text-white"
-            >
-              Trade
-            </Link>
-          </div>
-        </div>
-      </footer>
+      
     </main>
   );
 }
