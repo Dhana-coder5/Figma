@@ -411,7 +411,7 @@ export default function SlabDossier() {
         </div>
       </section>
 
-      {/* FOOTER */}
+     
       
     </main>
   );

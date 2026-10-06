@@ -14,7 +14,9 @@ const capabilities = [
       "Acoustic Slits",
       "Recessed Drainage Falls",
     ],
+    image: "/images/capability-01.jpg",
   },
+
   {
     number: "02",
     eyebrow: "CAPABILITY 02 // CHROMATIC VEIN LOGIC",
@@ -27,24 +29,37 @@ const capabilities = [
       "Vein Wrap Corners",
       "Digital Dry-Lay Signoff",
     ],
+    image: "/images/capability-02.jpg",
   },
+
   {
     number: "03",
-    eyebrow: "CAPABILITY 03 // SANITARY MONOLITHS",
-    title: "MONOLITHIC THERMO-MOLDED & MITERED SANITARYWARE",
-    tag: "ZERO GROUT WELL",
+    eyebrow: "CAPABILITY 03 // THERMAL MANAGMENT",
+    title: "VENTILATED THERMAL BREAK",
+    tag: "CLIMATE CONTROL",
     text:
-      "Constructed with hidden rigid structural sub-chassis, integrated slopes for zero water pooling, and seamlessly chamfered drain slots. Vanity basins, freestanding oval tubs, and suspended architectural sink troughs are wrapped uniformly in 6mm and 12mm sintered stone with 45-degree miter joints.",
-    image: "/images/capability-bathroom.jpg",
+      "Integrated ventilation channels within the slab structure to manage thermal expansion and contraction. This ensures dimensional stability and prevents cracking under varying temperature conditions.",
+    chips: [
+      "Endmatch Arrays",
+      "Vein Wrap Corners",
+      "Digital Dry-Lay Signoff",
+    ],
+    image: "/images/capability-03.jpg",
   },
+
   {
     number: "04",
-    eyebrow: "CAPABILITY 04 // EXTERNAL CLADDING",
-    title: "RAINSCREEN SUBSTRUCTURE & FACADE ENGINEERING",
-    tag: "WIND-LOAD TESTED",
+    eyebrow: "CAPABILITY 04 // HYDRO-SURGICAL",
+    title: "5-AXIS WATERJET PRECISION CNC CUTTING",
+    tag: "±0.3MM AXIS",
     text:
-      "Turnkey architectural envelopes engineered with hidden undercut anchor brackets, extruded aluminum sub-frames, and acoustic thermal gaskets. Tested to resist extreme wind-load shear and thermal expansion while ensuring zero exterior fastening penetrations are visible.",
-    image: "/images/capability-facade.jpg",
+      "High-pressure abrasive waterjet streams operating at 60,000 PSI, equipped with dynamic tilt correction to eliminate natural taper angles. We sculpt intricate freeform radiuses, fluted surface reliefs, complex geometric inlays, and acoustic slab perforations with surgical edge integrity.",
+    chips: [
+      "Endmatch Arrays",
+      "Vein Wrap Corners",
+      "Digital Dry-Lay Signoff",
+    ],
+    image: "/images/capability-04.jpg",
   },
 ];
 
@@ -57,6 +72,7 @@ const protocol = [
     output: "AS-BUILT TOLERANCE MODEL",
     icon: "scan",
   },
+
   {
     number: "02",
     title: "DIGITAL DRY-LAY SIMULATION",
@@ -65,6 +81,7 @@ const protocol = [
     output: "INTERACTIVE VEIN DOSSIER",
     icon: "palette",
   },
+
   {
     number: "03",
     title: "CNC PRECISION CUTTING",
@@ -73,6 +90,7 @@ const protocol = [
     output: "CALIBRATED COMPONENT KIT",
     icon: "machine",
   },
+
   {
     number: "04",
     title: "WHITE-GLOVE CRATED SHIPPING",
@@ -81,6 +99,7 @@ const protocol = [
     output: "SEQUENCED PALLET LOGISTICS",
     icon: "crate",
   },
+
   {
     number: "05",
     title: "ON-SITE INSTALLATION OVERSIGHT",
@@ -101,6 +120,7 @@ const substrateRows = [
     joints: "Every 5.0m × 5.0m (25m² max bay)",
     status: "APPROVED STANDARD",
   },
+
   {
     condition: "WET-ROOM TANKING & SPA ENCLOSURES",
     note: "Direct steam & immersion exposure",
@@ -110,13 +130,25 @@ const substrateRows = [
     joints: "All internal angles & penetrations",
     status: "APPROVED STANDARD",
   },
+
   {
-    condition: "POST-TENSIONED CONCRETE",
-    note: "Active structural movement",
-    adhesive: "EN 12004 C2S2 + deformable system",
-    decoupling: "Independent shear-strain isolation layer",
-    joints: "Directly mirroring structural movement grid",
-    status: "SPECIFIER REVIEW",
+    condition: "POST-TENSIONED CONCRETE SUSPENDED DECKS",
+    note: "Long-term deflection & camber movement",
+    adhesive: "EN 12004 C2S2 + Polyurethane Liquid",
+    decoupling:
+      "Independent shear-strain isolation matting (free-floating)",
+    joints: "Directly mirroring structural deflection joints",
+    status: "SPECIFIER AUDIT REQ.",
+  },
+
+  {
+    condition: "EXTERIOR VENTILATED FAÇADE FRAMING",
+    note: "Wind loads ≥ 2.4 kN/m² dynamic",
+    adhesive: "Structural MS Polymer + Keil Rear Anchors",
+    decoupling:
+      "Extruded aluminum bracket rail carrier grid (Alloy 6063 T6)",
+    joints: "Open horizontal shadow gaps (6mm)",
+    status: "APPROVED STANDARD",
   },
 ];
 
@@ -225,108 +257,102 @@ export default function BespokeFabrication() {
         </div>
       </section>
 
-    {/* ================= HERO ================= */}
-  <section className="mx-auto max-w-[1185px] px-0 pb-[78px]">
+      {/* ================= HERO ================= */}
+      <section className="mx-auto max-w-[1185px] px-0 pb-[78px]">
 
-    <div className="grid grid-cols-[1fr_465px] gap-[55px]">
+        <div className="grid grid-cols-[1fr_465px] gap-[55px]">
 
-      {/* ================= LEFT CONTENT ================= */}
-      <div className="pt-[98px]">
+          {/* ================= LEFT CONTENT ================= */}
+          <div className="pt-[98px]">
 
-        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#914b18]">
-          TECHNICAL SYNTHESIS // MONOLITHS
-        </p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#914b18]">
+              TECHNICAL SYNTHESIS // MONOLITHS
+            </p>
 
+            <h1
+              className="mt-[16px] max-w-[650px] text-[58px] leading-[1.02] tracking-[-0.035em] text-[#22211e]"
+              style={{
+                fontFamily: '"Libre Baskerville", Georgia, serif',
+                fontWeight: 400,
+              }}
+            >
+              BESPOKE
+              <br />
+              FABRICATION &
+              <br />
+              ARCHITECTURAL
+              <br />
+              ENGINEERING
+            </h1>
 
-        <h1
-          className="mt-[16px] max-w-[650px] text-[58px] leading-[1.02] tracking-[-0.035em] text-[#22211e]"
-          style={{
-            fontFamily: '"Libre Baskerville", Georgia, serif',
-            fontWeight: 400,
-          }}
-        >
-          BESPOKE
-          <br />
-          FABRICATION &
-          <br />
-          ARCHITECTURAL
-          <br />
-          ENGINEERING
-        </h1>
+            <p className="mt-[42px] max-w-[650px] text-[16px] leading-[1.8] text-[#4d4c49]">
+              From monolithic bookmatched stone feature walls to custom
+              45-degree mitered vanity basins and laser-cut stair treads. We
+              transform ultra-compact porcelain slabs and natural minerals into
+              structurally seamless architectural monoliths.
+            </p>
 
+            {/* BUTTONS */}
+            <div className="mt-[34px] flex items-center gap-[16px]">
 
-        <p className="mt-[42px] max-w-[650px] text-[16px] leading-[1.8] text-[#4d4c49]">
-          From monolithic bookmatched stone feature walls to custom
-          45-degree mitered vanity basins and laser-cut stair treads. We
-          transform ultra-compact porcelain slabs and natural minerals into
-          structurally seamless architectural monoliths.
-        </p>
+              <button
+                type="button"
+                className="flex h-[49px] items-center justify-center whitespace-nowrap bg-black px-[27px] text-[10px] font-semibold tracking-[0.07em] text-white"
+              >
+                SUBMIT ARCHITECTURAL DRAWINGS (.DWG/.PDF)
+              </button>
 
+              <button
+                type="button"
+                className="flex h-[49px] items-center justify-center whitespace-nowrap border border-[#cbc7bf] bg-[#eeece6] px-[28px] text-[10px] font-semibold tracking-[0.07em] text-[#383733]"
+              >
+                EXPLORE CAPABILITIES MATRIX
+              </button>
 
-        {/* BUTTONS */}
-        <div className="mt-[34px] flex items-center gap-[16px]">
+            </div>
 
-          <button
-            type="button"
-            className="flex h-[49px] items-center justify-center bg-black px-[27px] text-[10px] font-semibold tracking-[0.07em] text-white whitespace-nowrap"
-          >
-            SUBMIT ARCHITECTURAL DRAWINGS (.DWG/.PDF)
-          </button>
+          </div>
 
+          {/* ================= RIGHT IMAGE ================= */}
+          <div className="relative mt-[48px] h-[520px]">
 
-          <button
-            type="button"
-            className="flex h-[49px] items-center justify-center border border-[#cbc7bf] bg-[#eeece6] px-[28px] text-[10px] font-semibold tracking-[0.07em] text-[#383733] whitespace-nowrap"
-          >
-            EXPLORE CAPABILITIES MATRIX
-          </button>
+            <img
+              src="/images/bespoke-fabrication.jpg"
+              alt="Bespoke architectural fabrication"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
 
-        </div>
+            {/* IMAGE GRADIENT */}
+            <div className="absolute inset-x-0 bottom-0 h-[120px] bg-gradient-to-t from-black/45 to-transparent" />
 
-      </div>
+            {/* IMAGE CAPTION */}
+            <div className="absolute bottom-[36px] right-[25px] text-[10px] uppercase tracking-[0.08em] text-white">
+              CALACATTA VENA — TRAVERTINO NAVONA HONED
+            </div>
 
-         {/* ================= RIGHT IMAGE ================= */}
-      <div className="relative mt-[48px] h-[520px]">
+            {/* ================= TOLERANCE CARD ================= */}
+            <div className="absolute bottom-[-16px] left-[-25px] z-20 w-[240px] bg-white px-[17px] py-[20px] shadow-[0_7px_25px_rgba(0,0,0,0.10)]">
 
-        <img
-          src="/images/bespoke-fabrication.jpg"
-          alt="Bespoke architectural fabrication"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+              <p className="text-[9px] uppercase tracking-[0.10em] text-[#96501f]">
+                TOLERANCE VALIDATION
+              </p>
 
+              <p
+                className="mt-[10px] text-[28px] leading-none tracking-[-0.03em] text-[#292824]"
+                style={{
+                  fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 400,
+                }}
+              >
+                0.28 mm
+              </p>
 
-        {/* IMAGE GRADIENT */}
-        <div className="absolute inset-x-0 bottom-0 h-[120px] bg-gradient-to-t from-black/45 to-transparent" />
+              <p className="mt-[7px] max-w-[190px] text-[11px] leading-[1.45] text-[#55534f]">
+                Continuous bevel accuracy on thermo-formed 45° miters.
+              </p>
 
+            </div>
 
-        {/* IMAGE CAPTION */}
-        <div className="absolute bottom-[36px] right-[25px] text-[10px] uppercase tracking-[0.08em] text-white">
-          CALACATTA VENA — TRAVERTINO NAVONA HONED
-        </div>
-
-
-        {/* ================= TOLERANCE CARD ================= */}
-        <div className="absolute bottom-[-16px] left-[-25px] z-20 w-[240px] bg-white px-[17px] py-[20px] shadow-[0_7px_25px_rgba(0,0,0,0.10)]">
-
-          <p className="text-[9px] uppercase tracking-[0.10em] text-[#96501f]">
-            TOLERANCE VALIDATION
-          </p>
-
-          <p
-            className="mt-[10px] text-[28px] leading-none tracking-[-0.03em] text-[#292824]"
-            style={{
-              fontFamily: '"Libre Baskerville", Georgia, serif',
-              fontWeight: 400,
-            }}
-          >
-            0.28 mm
-          </p>
-
-          <p className="mt-[7px] max-w-[190px] text-[11px] leading-[1.45] text-[#55534f]">
-            Continuous bevel accuracy on thermo-formed 45° miters.
-          </p>
-
-        </div>
           </div>
 
         </div>
@@ -391,23 +417,25 @@ export default function BespokeFabrication() {
         </div>
       </section>
 
-      {/* =========================
-          FOUR CORE CAPABILITIES
-      ========================== */}
-      <section className="mx-auto max-w-[1185px] px-6 py-[80px] md:px-0">
+      {/* =====================================================
+          FOUR CORE TECHNICAL CAPABILITIES
+      ===================================================== */}
+      <section className="mx-auto max-w-[1185px] px-0 pb-[80px] pt-[92px]">
 
-        <div className="flex flex-col gap-6 border-b border-[#d0ccc3] pb-8 lg:flex-row lg:items-end lg:justify-between">
+        {/* SECTION HEADER */}
+        <div className="flex items-end justify-between gap-[55px] border-b border-[#d0ccc3] pb-[32px]">
 
-          <div>
+          <div className="flex-1">
 
             <p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#914b18]">
               ADVANCED MATERIAL PROCESSING
             </p>
 
             <h2
-              className="mt-3 text-[38px] tracking-[-0.025em] md:text-[40px]"
+              className="mt-[12px] text-[38px] leading-[1.08] tracking-[-0.025em]"
               style={{
                 fontFamily: '"Libre Baskerville", Georgia, serif',
+                fontWeight: 400,
               }}
             >
               FOUR CORE TECHNICAL CAPABILITIES
@@ -415,92 +443,297 @@ export default function BespokeFabrication() {
 
           </div>
 
-          <p className="max-w-xl text-[14px] leading-6 text-[#555550]">
-            Executing what standard stone fabricators classify as unbuildable
-            through calibrated multi-axis machinery, proprietary adhesives,
-            and laser metrology.
+          <p className="w-[450px] pb-[2px] text-[14px] leading-[1.7] text-[#555550]">
+            Executing what standard stone fabricators classify as
+            unbuildable through calibrated multi-axis machinery,
+            proprietary adhesives, and laser metrology.
           </p>
 
         </div>
 
-        <div className="mt-12 grid gap-7 lg:grid-cols-2">
+        {/* CAPABILITY GRID */}
+        <div className="mt-[48px] grid grid-cols-2 gap-[28px]">
 
-          {capabilities.map((item) => (
+          {/* CAPABILITY 01 */}
+          <article className="border border-[#c9c5bc] bg-[#f8f6ef]">
 
-            <article
-              key={item.number}
-              className="border border-[#c9c5bc] bg-[#f8f6ef]"
-            >
+            <div className="p-[28px]">
 
-              <div className="p-7 md:p-8">
+              <div className="flex items-center justify-between border-b border-[#d5d1c8] pb-[18px]">
 
-                <div className="flex items-center justify-between gap-4 border-b border-[#d5d1c8] pb-5">
+                <span className="text-[10px] uppercase tracking-[0.10em] text-[#555550]">
+                  CAPABILITY 01 // HYDRO-SURGICAL
+                </span>
 
-                  <span className="text-[10px] uppercase tracking-[0.11em] text-[#555550]">
-                    {item.eyebrow}
-                  </span>
-
-                  <span className="border border-[#cbc7be] bg-[#e8e5dd] px-2 py-2 text-[8px] uppercase tracking-[0.08em]">
-                    {item.tag}
-                  </span>
-
-                </div>
-
-                <h3
-                  className="mt-6 max-w-xl text-[18px] font-bold leading-tight md:text-[19px]"
-                  style={{
-                    fontFamily: '"Libre Baskerville", Georgia, serif',
-                  }}
-                >
-                  {item.title}
-                </h3>
-
-                <p className="mt-5 text-[14px] leading-6 text-[#555550]">
-                  {item.text}
-                </p>
-
-                {item.chips && (
-                  <div className="mt-6 flex flex-wrap gap-2">
-
-                    {item.chips.map((chip) => (
-
-                      <span
-                        key={chip}
-                        className="border border-[#c9c5bc] bg-[#eeece5] px-3 py-2 text-[9px] uppercase tracking-[0.08em]"
-                      >
-                        {chip}
-                      </span>
-
-                    ))}
-
-                  </div>
-                )}
-
-                {item.image && (
-                  <img
-                    src={item.image}
-                    alt=""
-                    className="mt-7 h-[300px] w-full object-cover object-top"
-                  />
-                )}
+                <span className="border border-[#cbc7be] bg-[#e8e5dd] px-[7px] py-[7px] text-[8px] uppercase tracking-[0.06em] text-[#44433f]">
+                  ±0.3MM AXIS
+                </span>
 
               </div>
 
-            </article>
+              <h3
+                className="mt-[23px] text-[18px] leading-[1.25] text-[#292824]"
+                style={{
+                  fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 700,
+                }}
+              >
+                5-AXIS WATERJET PRECISION CNC CUTTING
+              </h3>
 
-          ))}
+              <p className="mt-[18px] text-[14px] leading-[1.72] text-[#555550]">
+                High-pressure abrasive waterjet streams operating at
+                60,000 PSI, equipped with dynamic tilt correction to
+                eliminate natural taper angles. We sculpt intricate
+                freeform radiuses, fluted surface reliefs, complex
+                geometric inlays, and acoustic slab perforations with
+                surgical edge integrity.
+              </p>
+
+              <div className="mt-[25px] overflow-hidden border border-[#c9c5bc]">
+
+                <img
+                  src="/images/capability-01.jpg"
+                  alt="Waterjet fabrication and architectural cutting"
+                  className="block h-[292px] w-full object-cover"
+                />
+
+              </div>
+
+              <div className="mt-[17px] border-t border-[#d5d1c8]" />
+
+              <div className="mt-[15px] flex flex-wrap gap-[4px]">
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Curvilinear Inlays
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Acoustic Slits
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Recessed Drainage Falls
+                </span>
+
+              </div>
+
+            </div>
+          </article>
+
+          {/* CAPABILITY 02 */}
+          <article className="border border-[#c9c5bc] bg-[#f8f6ef]">
+
+            <div className="p-[28px]">
+
+              <div className="flex items-center justify-between border-b border-[#d5d1c8] pb-[18px]">
+
+                <span className="text-[10px] uppercase tracking-[0.10em] text-[#555550]">
+                  CAPABILITY 02 // CHROMATIC VEIN LOGIC
+                </span>
+
+                <span className="border border-[#cbc7be] bg-[#e8e5dd] px-[7px] py-[7px] text-[8px] uppercase tracking-[0.06em] text-[#44433f]">
+                  ALGORITHMIC LAY
+                </span>
+
+              </div>
+
+              <h3
+                className="mt-[23px] text-[18px] leading-[1.25] text-[#292824]"
+                style={{
+                  fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 700,
+                }}
+              >
+                BOOKMATCHED & CONTINUOUS VEIN MATCHING
+              </h3>
+
+              <p className="mt-[18px] text-[14px] leading-[1.72] text-[#555550]">
+                Every porcelain slab is digitized in calibrated 16K
+                optical scans. Our computational nesting engine matches
+                directional crystallization and mineral veins across
+                90-degree floor-to-wall turns, custom door wraps, and
+                ceiling-height feature installations before a single
+                diamond blade touches raw matter.
+              </p>
+
+              <div className="mt-[25px] overflow-hidden border border-[#c9c5bc]">
+
+                <img
+                  src="/images/capability-02.jpg"
+                  alt="Bookmatched continuous vein installation"
+                  className="block h-[292px] w-full object-cover"
+                />
+
+              </div>
+
+              <div className="mt-[17px] border-t border-[#d5d1c8]" />
+
+              <div className="mt-[15px] flex flex-wrap gap-[4px]">
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Endmatch Arrays
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Vein Wrap Corners
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Digital Dry-Lay Signoff
+                </span>
+
+              </div>
+
+            </div>
+          </article>
+
+          {/* CAPABILITY 03 */}
+          <article className="border border-[#c9c5bc] bg-[#f8f6ef]">
+
+            <div className="p-[28px]">
+
+              <div className="flex items-center justify-between border-b border-[#d5d1c8] pb-[18px]">
+
+                <span className="text-[10px] uppercase tracking-[0.10em] text-[#555550]">
+                  CAPABILITY 03 // SANITARY MONOLITHS
+                </span>
+
+                <span className="border border-[#cbc7be] bg-[#e8e5dd] px-[7px] py-[7px] text-[8px] uppercase tracking-[0.06em] text-[#44433f]">
+                  ZERO GROUT WELL
+                </span>
+
+              </div>
+
+              <h3
+                className="mt-[23px] text-[18px] leading-[1.25] text-[#292824]"
+                style={{
+                  fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 700,
+                }}
+              >
+                MONOLITHIC THERMO-MOLDED & MITERED SANITARYWARE
+              </h3>
+
+              <p className="mt-[18px] text-[14px] leading-[1.72] text-[#555550]">
+                Constructed with hidden rigid structural sub-chassis,
+                integrated slopes for zero water pooling, and seamlessly
+                chamfered drain slots. Vanity basins, freestanding oval
+                tubs, and suspended architectural sink troughs are wrapped
+                uniformly in 6mm and 12mm sintered stone with 45-degree
+                miter joints.
+              </p>
+
+              <div className="mt-[25px] overflow-hidden border border-[#c9c5bc]">
+
+                <img
+                  src="/images/Capability-03.jpg"
+                  alt="Monolithic thermo-molded sanitaryware"
+                  className="block h-[292px] w-full object-cover object-center"
+                />
+
+              </div>
+
+              <div className="mt-[17px] border-t border-[#d5d1c8]" />
+
+              <div className="mt-[15px] flex flex-wrap gap-[4px]">
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Concealed Removable Drains
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Curved Ribbed Casework
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Internal EPS Cores
+                </span>
+
+              </div>
+
+            </div>
+          </article>
+
+          {/* CAPABILITY 04 */}
+          <article className="border border-[#c9c5bc] bg-[#f8f6ef]">
+
+            <div className="p-[28px]">
+
+              <div className="flex items-center justify-between border-b border-[#d5d1c8] pb-[18px]">
+
+                <span className="text-[10px] uppercase tracking-[0.10em] text-[#555550]">
+                  CAPABILITY 04 // EXTERNAL CLADDING
+                </span>
+
+                <span className="border border-[#cbc7be] bg-[#e8e5dd] px-[7px] py-[7px] text-[8px] uppercase tracking-[0.06em] text-[#44433f]">
+                  WIND-LOAD TESTED
+                </span>
+
+              </div>
+
+              <h3
+                className="mt-[23px] text-[18px] leading-[1.25] text-[#292824]"
+                style={{
+                  fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 700,
+                }}
+              >
+                RAINSCREEN SUBSTRUCTURE & FACADE ENGINEERING
+              </h3>
+
+              <p className="mt-[18px] text-[14px] leading-[1.72] text-[#555550]">
+                Turnkey architectural envelopes engineered with hidden
+                undercut anchor brackets, extruded aluminum sub-frames,
+                and acoustic thermal gaskets. Tested to resist extreme
+                wind-load shear and thermal expansion while ensuring zero
+                exterior fastening penetrations are visible.
+              </p>
+
+              <div className="mt-[25px] overflow-hidden border border-[#c9c5bc]">
+
+                <img
+                  src="/images/Capability-04.jpg"
+                  alt="Rainscreen facade engineering"
+                  className="block h-[292px] w-full object-cover object-top"
+                />
+
+              </div>
+
+              <div className="mt-[17px] border-t border-[#d5d1c8]" />
+
+              <div className="mt-[15px] flex flex-wrap gap-[4px]">
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Undercut Kail Anchors
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Ventilated Thermal Break
+                </span>
+
+                <span className="border border-[#c9c5bc] bg-[#f3f0e8] px-[6px] py-[6px] text-[9px] text-[#45433e]">
+                  Seismic Compliance
+                </span>
+
+              </div>
+
+            </div>
+          </article>
 
         </div>
+
       </section>
 
-      {/* =========================
-          EDGE SIMULATOR
-      ========================== */}
-      <section className="mx-auto max-w-[1185px] px-6 pb-[80px] md:px-0">
+      {/* =====================================================
+          JOINT CALIPER & EDGE PROFILE SIMULATOR
+      ===================================================== */}
+      <section className="mx-auto max-w-[1185px] px-0 pb-[80px]">
 
-        <div className="border-t border-[#c9c5bc] pt-8">
+        <div className="border-t border-[#c9c5bc] pt-[28px]">
 
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          {/* SIMULATOR HEADER */}
+          <div className="flex items-end justify-between">
 
             <div>
 
@@ -509,9 +742,10 @@ export default function BespokeFabrication() {
               </p>
 
               <h2
-                className="mt-3 text-[38px] tracking-[-0.025em] md:text-[40px]"
+                className="mt-[10px] text-[30px] leading-[1.05] tracking-[-0.025em] text-[#272622]"
                 style={{
                   fontFamily: '"Libre Baskerville", Georgia, serif',
+                  fontWeight: 300,
                 }}
               >
                 JOINT CALIPER & EDGE PROFILE SIMULATOR
@@ -519,60 +753,72 @@ export default function BespokeFabrication() {
 
             </div>
 
-            <span className="text-[10px] uppercase tracking-[0.1em] text-[#555550]">
-              Interactive Specification Module
+            <span className="pb-[6px] text-[9px] uppercase tracking-[0.10em] text-[#555550]">
+              INTERACTIVE SPECIFICATION MODULE
             </span>
 
           </div>
 
-          <div className="mt-8 grid border border-[#c9c5bc] bg-white lg:grid-cols-[390px_1fr]">
+          {/* ================= SIMULATOR GRID ================= */}
+          <div
+            className="mt-[42px] min-h-[505px] border border-[#c9c5bc] bg-white"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "390px 1fr",
+            }}
+          >
 
-            {/* LEFT PANEL */}
-            <div className="border-b border-[#c9c5bc] p-7 lg:border-b-0 lg:border-r">
+            {/* ================= LEFT PANEL ================= */}
+            <div className="border-r border-[#c9c5bc] bg-white p-[28px]">
 
-              <p className="text-[10px] font-semibold uppercase tracking-[0.1em]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#252522]">
                 EDGE FABRICATION TREATMENT
               </p>
 
-              <div className="mt-3 grid grid-cols-2">
+              <div className="mt-[8px] grid grid-cols-2">
 
-                {[
-                  "45° MITERED BEVEL",
-                  "MICRO PENCIL RADIUS (1MM)",
-                  "FLUTED REED PROFILE",
-                  "SHARK-NOSE UNDERCUT",
-                ].map((item, index) => (
+                <div className="flex h-[44px] items-center border border-white bg-black px-[8px] text-[10px] uppercase tracking-[0.07em] text-white">
+                  45° MITERED BEVEL
+                </div>
 
-                  <div
-                    key={item}
-                    className={`border border-white px-3 py-3 text-[10px] uppercase tracking-[0.08em] ${
-                      index === 0
-                        ? "bg-black text-white"
-                        : "bg-[#e8e5dd] text-[#45433e]"
-                    }`}
-                  >
-                    {item}
-                  </div>
+                <div className="flex h-[44px] items-center border border-white bg-[#e8e5dd] px-[8px] text-[10px] uppercase tracking-[0.06em] text-[#45433e]">
+                  <span>
+                    MICRO PENCIL RADIUS
+                    <br />
+                    (1MM)
+                  </span>
+                </div>
 
-                ))}
+                <div className="flex h-[44px] items-center border border-white bg-[#e8e5dd] px-[8px] text-[10px] uppercase tracking-[0.07em] text-[#45433e]">
+                  FLUTED REED PROFILE
+                </div>
+
+                <div className="flex h-[44px] items-center border border-white bg-[#e8e5dd] px-[8px] text-[10px] uppercase tracking-[0.06em] text-[#45433e]">
+                  <span>
+                    SHARK-NOSE
+                    <br />
+                    UNDERCUT
+                  </span>
+                </div>
 
               </div>
 
-              <div className="mt-8">
+              {/* CALIBRATED JOINT GAP */}
+              <div className="mt-[30px]">
 
-                <div className="flex items-center justify-between gap-5">
+                <div className="flex items-center justify-between">
 
-                  <span className="text-[10px] font-semibold uppercase">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#292824]">
                     CALIBRATED JOINT GAP
                   </span>
 
-                  <strong className="text-xs text-[#9a4e16]">
+                  <strong className="text-[11px] text-[#9a4e16]">
                     1.5 mm (Standard Dry-Stack)
                   </strong>
 
                 </div>
 
-                <div className="mt-6 flex justify-between text-[9px] text-[#555550]">
+                <div className="mt-[25px] flex justify-between text-[9px] text-[#555550]">
                   <span>1.0 mm (Hairline)</span>
                   <span>2.0 mm (Seismic)</span>
                   <span>4.0 mm (Exterior)</span>
@@ -580,101 +826,147 @@ export default function BespokeFabrication() {
 
               </div>
 
-              <div className="mt-8">
+              {/* MORTAR TONE TINT */}
+              <div className="mt-[31px]">
 
-                <p className="text-[10px] font-semibold uppercase">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.06em] text-[#292824]">
                   MORTAR TONE TINT
                 </p>
 
-                <div className="mt-3 flex gap-2">
-                  <span className="h-7 w-7 bg-[#24231f]" />
-                  <span className="h-7 w-7 bg-[#a49f94]" />
-                  <span className="h-7 w-7 border-2 border-[#9c9689] bg-[#ddd7ca]" />
-                  <span className="h-7 w-7 bg-[#f0ece3]" />
+                <div className="mt-[8px] flex items-center gap-[8px]">
+
+                  <span className="h-[29px] w-[29px] bg-[#24231f]" />
+
+                  <span className="h-[29px] w-[29px] bg-[#a49f94]" />
+
+                  <span className="h-[29px] w-[29px] border-2 border-[#9c9689] bg-[#ddd7ca]" />
+
+                  <span className="h-[29px] w-[29px] bg-[#f0ece3]" />
+
                 </div>
 
-                <p className="mt-2 text-[10px] text-[#555550]">
+                <p className="mt-[9px] block text-[10px] leading-[1.4] text-[#555550]">
                   Active Tint: Travertine Bone
                 </p>
 
-              </div>
+                {/* ARCHITECTURAL ADVISORY */}
+                <div className="mt-[27px] border border-[#c9c5bc] bg-[#f3f0e8] p-[13px]">
 
-              <div className="mt-8 border border-[#c9c5bc] bg-[#f3f0e8] p-4">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.08em] text-[#914b18]">
+                    ARCHITECTURAL ADVISORY
+                  </p>
 
-                <p className="text-[9px] font-semibold uppercase tracking-[0.08em] text-[#914b18]">
-                  ARCHITECTURAL ADVISORY
-                </p>
+                  <p className="mt-[10px] text-[11px] leading-[1.55] text-[#555550]">
+                    45° Miter joint requires structural backing with two-part
+                    thixotropic epoxy paste and polyurethane expansion joints at
+                    floor perimeter intersections.
+                  </p>
 
-                <p className="mt-3 text-xs leading-5 text-[#555550]">
-                  45° Miter joint requires structural backing with two-part
-                  thixotropic epoxy paste and polyurethane expansion joints at
-                  floor perimeter intersections.
-                </p>
+                </div>
 
               </div>
 
             </div>
 
-            {/* RIGHT PANEL */}
-            <div className="bg-[#e9e6de] p-7">
+            {/* ================= RIGHT PANEL ================= */}
+            <div className="min-w-0 bg-[#e9e6de] p-[28px]">
 
-              <div className="flex flex-col justify-between gap-3 border-b border-[#c9c5bc] pb-4 text-[9px] uppercase tracking-[0.08em] text-[#555550] md:flex-row">
+              {/* RIGHT PANEL HEADER */}
+              <div className="flex items-center justify-between border-b border-[#c9c5bc] pb-[11px]">
 
-                <span>
+                <span className="text-[9px] uppercase tracking-[0.07em] text-[#555550]">
                   CROSS SECTION VIEW // 10:1 MACRO SIMULATION
                 </span>
 
-                <span>
+                <span className="text-[9px] uppercase tracking-[0.07em] text-[#555550]">
                   SLAB THICKNESS: 12.0 MM SINTERED PORCELAIN
                 </span>
 
               </div>
 
-              <div className="relative mt-16 flex justify-center">
+              {/* CROSS SECTION DRAWING */}
+              <div className="relative mt-[45px] flex h-[270px] items-center justify-center">
 
-                <div className="relative flex w-[78%] gap-5">
+                <div className="relative h-full w-[75%]">
 
-                  <div className="h-36 flex-1 border-2 border-[#c3bbaa] bg-[#e8e1d2]">
-                    <div className="mt-6 h-px w-full rotate-[3deg] bg-[#d1c6b3]" />
-                    <div className="mt-12 h-px w-full -rotate-[5deg] bg-[#d1c6b3]" />
+                  {/* LEFT SLAB */}
+                  <div className="absolute left-0 top-[28px] h-[140px] w-[48.5%] border-2 border-[#c4bbab] bg-[#e8e1d2]">
+
+                    <div className="absolute left-[22px] right-[25px] top-[24px] border-t border-dashed border-[#d1c6b4]" />
+
+                    <div className="absolute left-[42px] right-[35px] top-[83px] border-t border-dashed border-[#d1c6b4]" />
+
                   </div>
 
-                  <div className="h-36 flex-1 border-2 border-[#c3bbaa] bg-[#e8e1d2]">
-                    <div className="mt-6 h-px w-full -rotate-[2deg] bg-[#d1c6b3]" />
-                    <div className="mt-12 h-px w-full rotate-[5deg] bg-[#d1c6b3]" />
+                  {/* RIGHT SLAB */}
+                  <div className="absolute right-0 top-[28px] h-[140px] w-[48.5%] border-2 border-[#c4bbab] bg-[#e8e1d2]">
+
+                    <div className="absolute left-[25px] right-[22px] top-[24px] border-t border-dashed border-[#d1c6b4]" />
+
+                    <div className="absolute left-[35px] right-[42px] top-[83px] border-t border-dashed border-[#d1c6b4]" />
+
                   </div>
 
-                  <div className="absolute left-1/2 top-[-24px] -translate-x-1/2 text-[9px] font-bold text-[#a1581e]">
-                    1.5 MM
+                  {/* CENTER JOINT */}
+                  <div className="absolute left-1/2 top-[28px] h-[140px] w-[20px] -translate-x-1/2 bg-[#d8d0c1]">
+
+                    <div className="absolute left-1/2 top-0 h-full w-[2px] -translate-x-1/2 bg-[#c5bcac]" />
+
                   </div>
 
-                  <div className="absolute bottom-[-15px] left-0 right-0 h-3 bg-[#aaa9a5]" />
+                  {/* 1.5 MM MEASUREMENT */}
+                  <div className="absolute left-1/2 top-[0px] flex -translate-x-1/2 items-center">
 
-                  <div className="absolute bottom-[-17px] left-[47%] text-[7px] uppercase tracking-[0.12em] text-white">
+                    <span className="h-[1px] w-[22px] bg-[#9e531a]" />
+
+                    <span className="mx-[5px] whitespace-nowrap text-[8px] font-bold text-[#9e531a]">
+                      1.5 MM
+                    </span>
+
+                    <span className="h-[1px] w-[22px] bg-[#9e531a]" />
+
+                  </div>
+
+                  {/* ADHESIVE BED */}
+                  <div className="absolute bottom-[-2px] left-0 right-0 h-[13px] bg-[#aaa9a5]" />
+
+                  <span className="absolute bottom-[0px] left-1/2 -translate-x-1/2 whitespace-nowrap text-[6px] uppercase tracking-[0.16em] text-white">
                     FLEXIBLE ELASTIC ADHESIVE BED
-                  </div>
+                  </span>
 
                 </div>
 
               </div>
 
-              <div className="mt-20 flex flex-col justify-between gap-2 border-t border-[#c9c5bc] pt-5 text-[9px] uppercase tracking-[0.08em] text-[#555550] md:flex-row">
+              {/* TECHNICAL INFORMATION */}
+              <div className="mt-[25px] border-t border-[#c9c5bc] pt-[13px]">
 
-                <span>
-                  ASTM C627 HEAVY COMMERCIAL RATED
-                  <br />
-                  EXPANSION COEFFICIENT: 6.5 × 10⁻⁶ K⁻¹
-                </span>
+                <div className="flex items-start justify-between">
 
-                <span>
-                  TENSILE BOND STRENGTH: ≥ 2.5 N/MM²
-                </span>
+                  <div className="text-[9px] uppercase leading-[1.7] tracking-[0.07em] text-[#555550]">
+
+                    <div>
+                      ASTM C627 HEAVY COMMERCIAL RATED
+                    </div>
+
+                    <div>
+                      EXPANSION COEFFICIENT: 6.5 × 10⁻⁶ K⁻¹
+                    </div>
+
+                  </div>
+
+                  <div className="text-right text-[9px] uppercase tracking-[0.07em] text-[#555550]">
+                    TENSILE BOND STRENGTH: ≥ 2.5 N/MM²
+                  </div>
+
+                </div>
 
               </div>
 
             </div>
 
           </div>
+
         </div>
       </section>
 
@@ -764,6 +1056,7 @@ export default function BespokeFabrication() {
             ))}
 
           </div>
+
         </div>
       </section>
 
@@ -783,7 +1076,7 @@ export default function BespokeFabrication() {
               </p>
 
               <h2
-                className="mt-3 text-[38px] tracking-[-0.025em] md:text-[40px]"
+                className="mt-3 text-[38px] tracking-[-0.025em] md:text-[35px]"
                 style={{
                   fontFamily: '"Libre Baskerville", Georgia, serif',
                 }}
@@ -806,11 +1099,13 @@ export default function BespokeFabrication() {
             <table className="w-full min-w-[1000px] border-collapse text-left">
 
               <colgroup>
+
                 <col style={{ width: "27.5%" }} />
                 <col style={{ width: "18.5%" }} />
                 <col style={{ width: "25%" }} />
                 <col style={{ width: "17%" }} />
                 <col style={{ width: "12%" }} />
+
               </colgroup>
 
               <thead>
@@ -845,11 +1140,10 @@ export default function BespokeFabrication() {
 
                 {substrateRows.map((row) => (
 
-                  <tr
-                    key={row.condition}
-                    className="border-t border-[#dedbd3]"
-                  >
-
+                 <tr
+  key={row.condition}
+  className="border-t border-[#dedbd3] odd:bg-[#f8f6ef] even:bg-[#f2efe7]"
+>
                     <td className="p-7">
 
                       <div
@@ -898,7 +1192,9 @@ export default function BespokeFabrication() {
               </tbody>
 
             </table>
+
           </div>
+
         </div>
       </section>
 
@@ -917,7 +1213,7 @@ export default function BespokeFabrication() {
             </SectionLabel>
 
             <h2
-              className="mt-6 text-[40px] leading-[0.98] tracking-[-0.03em] md:text-[42px]"
+              className="mt-6 text-[40px] leading-[0.98] tracking-[-0.03em] md:text-[35px]"
               style={{
                 fontFamily: '"Libre Baskerville", Georgia, serif',
               }}
@@ -950,11 +1246,12 @@ export default function BespokeFabrication() {
               </h3>
 
               <p className="mt-3 text-[13px] text-[#c7c6c0]">
-                +39 02 8941 7720 // Milan Head Atelier
+                +39 02 8941 7720 // Milan Head 
+                <br />Atelier
               </p>
 
               <div className="mt-5 text-[26px] text-[#ef9d5b]">
-                ⌁
+                🎧
               </div>
 
             </div>
@@ -976,6 +1273,7 @@ export default function BespokeFabrication() {
                   className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
                   placeholder="Elena Rossi"
                 />
+
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
@@ -985,6 +1283,7 @@ export default function BespokeFabrication() {
                   className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
                   placeholder="Studio Architettura Rossi"
                 />
+
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
@@ -995,6 +1294,7 @@ export default function BespokeFabrication() {
                   className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
                   placeholder="e.rossi@studio-rossi.it"
                 />
+
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
@@ -1004,6 +1304,7 @@ export default function BespokeFabrication() {
                   type="date"
                   className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] tracking-normal text-white outline-none"
                 />
+
               </label>
 
             </div>
@@ -1043,6 +1344,7 @@ export default function BespokeFabrication() {
                 ))}
 
               </div>
+
             </fieldset>
 
             <label className="mt-5 block text-[9px] font-semibold uppercase tracking-[0.1em]">
