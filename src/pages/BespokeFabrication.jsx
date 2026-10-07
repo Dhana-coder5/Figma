@@ -1,5 +1,5 @@
-import React from "react";
-import Footer from "../components/Footer.jsx";
+import React,{useState} from "react";
+
 
 const capabilities = [
   {
@@ -233,6 +233,104 @@ function StageIcon({ type }) {
 }
 
 export default function BespokeFabrication() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    studio: "",
+    email: "",
+    date: "",
+    notes: "",
+  });
+
+  const [selectedScopes, setSelectedScopes] = useState([
+    "Mitered Vanity Basin",
+    "Continuous Vein Wall",
+  ]);
+
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setSubmitted(false);
+  };
+
+  const handleScopeChange = (item) => {
+    setSelectedScopes((prev) =>
+      prev.includes(item)
+        ? prev.filter((scope) => scope !== item)
+        : [...prev, item]
+    );
+
+    setSubmitted(false);
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files?.[0];
+
+    if (!file) return;
+
+    const allowedExtensions = [".dwg", ".pdf", ".rvt"];
+    const fileName = file.name.toLowerCase();
+    const isAllowed = allowedExtensions.some((extension) =>
+      fileName.endsWith(extension)
+    );
+
+    const maxSize = 100 * 1024 * 1024;
+
+    if (!isAllowed) {
+      alert("Please upload a .DWG, .PDF, or .RVT file.");
+      event.target.value = "";
+      return;
+    }
+
+    if (file.size > maxSize) {
+      alert("File size must be 100MB or less.");
+      event.target.value = "";
+      return;
+    }
+
+    setSelectedFile(file);
+    setSubmitted(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (
+      !formData.name.trim() ||
+      !formData.studio.trim() ||
+      !formData.email.trim() ||
+      !formData.date
+    ) {
+      alert("Please complete all required fields.");
+      return;
+    }
+
+    if (selectedScopes.length === 0) {
+      alert("Please select at least one fabrication scope.");
+      return;
+    }
+
+    setSubmitted(true);
+
+    console.log("FORM SUBMISSION", {
+      ...formData,
+      fabricationScopes: selectedScopes,
+      file: selectedFile,
+    });
+  };
+
+
+
+
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f5f2ea] text-[#22211e]">
 
@@ -1250,19 +1348,37 @@ export default function BespokeFabrication() {
                 <br />Atelier
               </p>
 
-              <div className="mt-5 text-[26px] text-[#ef9d5b]">
+            {/*}  <div className="mt-5 text-[26px] text-[#ef9d5b]">
                 🎧
-              </div>
+              </div> */}
 
-            </div>
+              <div className="mt-5 text-[#ef9d5b]">
+  <svg
+    width="28"
+    height="28"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+    <path d="M4 14h3v5H5a1 1 0 0 1-1-1v-4Z" />
+    <path d="M20 14h-3v5h2a1 1 0 0 0 1-1v-4Z" />
+    <path d="M20 18c0 2-1.5 3-4 3" />
+  </svg>
+</div>
+
+              </div>
 
           </div>
 
           {/* RIGHT FORM */}
-          <form
-            onSubmit={(event) => event.preventDefault()}
-            className="border border-[#696963] bg-[#1e201f] p-7"
-          >
+         <form
+  onSubmit={handleSubmit}
+  className="border border-[#696963] bg-[#1e201f] p-7"
+>
 
             <div className="grid gap-4 md:grid-cols-2">
 
@@ -1270,40 +1386,56 @@ export default function BespokeFabrication() {
                 ARCHITECT / SPECIFIER NAME
 
                 <input
-                  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
-                  placeholder="Elena Rossi"
-                />
+  name="name"
+  value={formData.name}
+  onChange={handleInputChange}
+  required
+  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
+  placeholder="Elena Rossi"
+/>
 
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
                 ARCHITECTURAL PRACTICE / STUDIO
 
-                <input
-                  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
-                  placeholder="Studio Architettura Rossi"
-                />
+               <input
+  name="studio"
+  value={formData.studio}
+  onChange={handleInputChange}
+  required
+  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
+  placeholder="Studio Architettura Rossi"
+/>
 
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
                 PROFESSIONAL EMAIL
 
-                <input
-                  type="email"
-                  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
-                  placeholder="e.rossi@studio-rossi.it"
-                />
+               <input
+  name="email"
+  type="email"
+  value={formData.email}
+  onChange={handleInputChange}
+  required
+  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
+  placeholder="e.rossi@studio-rossi.it"
+/>
 
               </label>
 
               <label className="text-[9px] font-semibold uppercase tracking-[0.1em]">
                 TARGET DELIVERY / INSTALL DATE
 
-                <input
-                  type="date"
-                  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] tracking-normal text-white outline-none"
-                />
+               <input
+  name="date"
+  type="date"
+  value={formData.date}
+  onChange={handleInputChange}
+  required
+  className="mt-2 h-[38px] w-full border border-[#70716b] bg-[#30312e] px-4 text-[11px] tracking-normal text-white outline-none"
+/>
 
               </label>
 
@@ -1318,73 +1450,86 @@ export default function BespokeFabrication() {
               <div className="mt-2 grid gap-1 md:grid-cols-3">
 
                 {[
-                  "Mitered Vanity Basin",
-                  "Continuous Vein Wall",
-                  "Rainscreen Facade",
-                  "Custom Stair Treads",
-                  "Integrated Tub Shell",
-                  "Acoustic Perforations",
-                ].map((item, index) => (
+  "Mitered Vanity Basin",
+  "Continuous Vein Wall",
+  "Rainscreen Facade",
+  "Custom Stair Treads",
+  "Integrated Tub Shell",
+  "Acoustic Perforations",
+].map((item) => (
+  <label
+    key={item}
+    className="flex h-[29px] cursor-pointer items-center gap-2 border border-[#666761] bg-[#30312e] px-2 text-[10px] text-[#d7d5ce]"
+  >
+    <input
+      type="checkbox"
+      checked={selectedScopes.includes(item)}
+      onChange={() => handleScopeChange(item)}
+      className="h-3 w-3"
+    />
 
-                  <label
-                    key={item}
-                    className="flex h-[29px] items-center gap-2 border border-[#666761] bg-[#30312e] px-2 text-[10px] text-[#d7d5ce]"
-                  >
-
-                    <input
-                      type="checkbox"
-                      defaultChecked={index === 0 || index === 1}
-                      className="h-3 w-3"
-                    />
-
-                    {item}
-
-                  </label>
-
-                ))}
-
+    {item}
+  </label>
+))}
               </div>
 
             </fieldset>
 
-            <label className="mt-5 block text-[9px] font-semibold uppercase tracking-[0.1em]">
+            <label className="mt-5 block cursor-pointer text-[9px] font-semibold uppercase tracking-[0.1em]">
+  DRAWING / PLAN UPLOAD (.DWG, .PDF, .RVT ≤ 100MB)
 
-              DRAWING / PLAN UPLOAD (.DWG, .PDF, .RVT ≤ 100MB)
+  <input
+    type="file"
+    accept=".dwg,.pdf,.rvt,application/pdf"
+    onChange={handleFileChange}
+    className="hidden"
+  />
 
-              <div className="mt-2 flex h-[135px] flex-col items-center justify-center border border-dashed border-[#777871] bg-[#30312e] text-center">
+  <div className="mt-2 flex h-[135px] flex-col items-center justify-center border border-dashed border-[#777871] bg-[#30312e] text-center">
 
-                <span className="text-[30px] leading-none text-[#ef9d5b]">
-                  ⌘
-                </span>
+    <span className="text-[30px] leading-none text-[#ef9d5b]">
+      ⌘
+    </span>
 
-                <span
-                  className="mt-2 text-[15px]"
-                  style={{
-                    fontFamily: '"Libre Baskerville", Georgia, serif',
-                  }}
-                >
-                  DRAG ARCHITECTURAL FILES OR BROWSE
-                </span>
+    <span
+      className="mt-2 text-[15px]"
+      style={{
+        fontFamily: '"Libre Baskerville", Georgia, serif',
+      }}
+    >
+      {selectedFile
+        ? selectedFile.name
+        : "DRAG ARCHITECTURAL FILES OR BROWSE"}
+    </span>
 
-                <span className="mt-2 text-[11px] font-normal normal-case tracking-normal text-[#aaa9a2]">
-                  Encrypted direct upload to secure studio fabrication vault
-                </span>
+    <span className="mt-2 text-[11px] font-normal normal-case tracking-normal text-[#aaa9a2]">
+      {selectedFile
+        ? `${(selectedFile.size / (1024 * 1024)).toFixed(2)} MB selected`
+        : "Encrypted direct upload to secure studio fabrication vault"}
+    </span>
 
-              </div>
-
-            </label>
-
+  </div>
+</label>
             <label className="mt-5 block text-[9px] font-semibold uppercase tracking-[0.1em]">
 
               PROJECT NOTES / SPECIFIC TOLERANCES
 
-              <textarea
-                rows="3"
-                className="mt-2 h-[82px] w-full resize-none border border-[#70716b] bg-[#30312e] px-4 py-3 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
-                placeholder="Specify nominal slab thickness preferences (6mm/12mm/20mm), required slip resistance (R10/R11), or specific vein matching criteria..."
-              />
+             <textarea
+  name="notes"
+  rows="3"
+  value={formData.notes}
+  onChange={handleInputChange}
+  className="mt-2 h-[82px] w-full resize-none border border-[#70716b] bg-[#30312e] px-4 py-3 text-[11px] font-normal normal-case tracking-normal text-white outline-none placeholder:text-[#aaa9a2]"
+  placeholder="Specify nominal slab thickness preferences (6mm/12mm/20mm), required slip resistance (R10/R11), or specific vein matching criteria..."
+/>
 
             </label>
+            {submitted && (
+  <div className="mt-4 border border-[#6d6d67] bg-[#30312e] px-4 py-3 text-[11px] leading-5 text-[#ef9d5b]">
+    FEASIBILITY AUDIT REQUEST RECEIVED. YOUR PROJECT DETAILS HAVE BEEN
+    CAPTURED FOR REVIEW.
+  </div>
+)}
 
             <button
               type="submit"
@@ -1401,10 +1546,7 @@ export default function BespokeFabrication() {
         </div>
       </section>
 
-      {/* =========================
-          COMMON FOOTER
-      ========================== */}
-      <Footer />
+    
 
     </main>
   );

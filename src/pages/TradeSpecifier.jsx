@@ -2,14 +2,15 @@ import { useState } from "react";
 
 const materials = [
   {
-    code: "CP-902",
-    name: "CEPPO DI GRÉ",
-    size: "12mm RECTIFIED",
-    slip: "R11 • SLIP B",
-    finish: "HONED FLAMED",
-    type: "SEDIMENTARY & CEPPO",
-    tone: "ceppo",
-  },
+  code: "CP-902",
+  name: "CEPPO DI GRÉ",
+  size: "12mm RECTIFIED",
+  slip: "R11 • SLIP B",
+  finish: "HONED FLAMED",
+  type: "SEDIMENTARY & CEPPO",
+  tone: "ceppo",
+  image: "/images/ceppo-di-gre.jpg",
+},
   {
     code: "ST-408",
     name: "STATUARIO SATIN",
@@ -18,6 +19,7 @@ const materials = [
     finish: "VEIN-MATCHED",
     type: "METAMORPHIC MARBLE",
     tone: "marble",
+      image: "/images/statuario-satin.jpg",
   },
   {
     code: "TR-110",
@@ -27,6 +29,7 @@ const materials = [
     finish: "CROSS-CUT",
     type: "SEDIMENTARY & CEPPO",
     tone: "travertine",
+     image: "/images/navona-naturale.jpg",
   },
   {
     code: "BS-705",
@@ -36,6 +39,7 @@ const materials = [
     finish: "TACTILE GROOVE",
     type: "RAW COTTO & BASALT",
     tone: "basalt",
+     image: "/images/basalt-fluted.jpg",
   },
   {
     code: "CT-330",
@@ -45,6 +49,7 @@ const materials = [
     finish: "WOOD FIRED",
     type: "RAW COTTO & BASALT",
     tone: "cotto",
+     image: "/images/tuscan-cotto.jpg",
   },
   {
     code: "GC-504",
@@ -54,6 +59,7 @@ const materials = [
     finish: "CARBON MATRIX",
     type: "METAMORPHIC MARBLE",
     tone: "grigio",
+     image: "/images/grigio-carnico.jpg",
   },
 ];
 
@@ -67,7 +73,7 @@ const studios = [
     advisor: "Matteo Castelli, Arch.",
     hours: "MON - FRI: 09:00 - 18:30",
     action: "BOOK PRIVATE MILAN CONSULTATION",
-    image: "studio-milan",
+    image: "/images/studio-milan.jpg",
   },
   {
     city: "LONDON SPECIFIER LAB",
@@ -78,7 +84,7 @@ const studios = [
     advisor: "Harriet Sterling, RIBA",
     hours: "MON - FRI: 08:30 - 18:00",
     action: "BOOK CLERKENWELL APPOINTMENT",
-    image: "studio-london",
+    image: "/images/studio-london.jpg",
   },
   {
     city: "NEW YORK GALLERY",
@@ -89,7 +95,7 @@ const studios = [
     advisor: "Julian Rhodes, AIA",
     hours: "MON - SAT: 10:00 - 19:00",
     action: "BOOK SOHO GALLERY SESSION",
-    image: "studio-newyork",
+   image: "/images/studio-newyork.jpg",
   },
 ];
 
@@ -102,7 +108,12 @@ function SectionLabel({ children }) {
   );
 }
 
-function ImagePlaceholder({ variant = "stone", className = "" }) {
+function ImagePlaceholder({
+  variant = "stone",
+  src = "",
+  alt = "",
+  className = "",
+}) {
   const backgrounds = {
     ceppo:
       "radial-gradient(circle at 20% 30%, #8d8b82 0 5%, transparent 6%), radial-gradient(circle at 65% 60%, #6e6d66 0 7%, transparent 8%), linear-gradient(135deg,#b8b5aa,#74736d)",
@@ -125,15 +136,28 @@ function ImagePlaceholder({ variant = "stone", className = "" }) {
     stone:
       "linear-gradient(135deg,#d6d0c3,#8e897e 50%,#c4bdae)",
   };
+return (
+  <div className={`relative overflow-hidden ${className}`}>
+    {src ? (
+      <img
+        src={src}
+        alt={alt}
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+    ) : (
+      <>
+        <div
+          className="absolute inset-0"
+          style={{
+            background: backgrounds[variant] || backgrounds.stone,
+          }}
+        />
 
-  return (
-    <div
-      className={`relative overflow-hidden ${className}`}
-      style={{ background: backgrounds[variant] || backgrounds.stone }}
-    >
-      <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0,transparent_25%),radial-gradient(circle_at_80%_70%,black_0,transparent_30%)]" />
-    </div>
-  );
+        <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_20%_20%,white_0,transparent_25%),radial-gradient(circle_at_80%_70%,black_0,transparent_30%)]" />
+      </>
+    )}
+  </div>
+);
 }
 
 function MaterialCard({ material, selected, onSelect }) {
@@ -148,10 +172,13 @@ function MaterialCard({ material, selected, onSelect }) {
       }`}
     >
       <div className="relative p-4">
-        <ImagePlaceholder
-          variant={material.tone}
-          className="h-[235px] w-full"
-        />
+        <div className="h-[235px] w-full overflow-hidden">
+  <img
+    src={material.image}
+    alt={material.name}
+    className="h-full w-full object-cover object-center"
+  />
+</div>
 
         {selected && (
           <div className="absolute right-6 top-6 bg-black px-3 py-2 text-[10px] font-semibold tracking-[0.12em] text-white">
@@ -328,7 +355,7 @@ export default function TradeSpecifier() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f5ee] text-[#24231f]">
+   <div className="min-h-screen bg-[#fcf9f2] text-[#24231f]">
       {/* PAGE HEADER */}
       <section className="border-b border-[#dedbd2] px-6 pb-12 pt-16 md:px-[7%] md:pt-24">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
@@ -337,11 +364,11 @@ export default function TradeSpecifier() {
               ARCHITECTURAL TRADE DESK // SPECIFIER CURATION
             </SectionLabel>
 
-            <h1 className="font-serif text-[42px] leading-[0.98] tracking-[-0.03em] md:text-[62px]">
+            <h1 className="font-serif text-[42px] leading-[0.98] tracking-[-0.03em] md:text-[30px]">
               PHYSICAL MATERIAL DOSSIER & CUSTOM CURATION BOX
             </h1>
 
-            <p className="mt-6 max-w-[820px] text-[16px] leading-7 text-[#55534e] md:text-[18px]">
+            <p className="mt-6 max-w-[820px] text-[17px] leading-7 text-[#55534e] md:text-[18px]">
               Tactile 150×150mm & 300×150mm rectified specimen slabs dispatched
               via priority overnight courier to accredited RIBA, AIA, and BIID
               studios worldwide. Hand-finished with raw geological calibration
@@ -367,7 +394,7 @@ export default function TradeSpecifier() {
               <p className="text-[10px] font-bold tracking-[0.1em]">
                 VERIFIED SPECIFIERS
               </p>
-              <p className="mt-5 font-serif text-xl font-bold text-[#9a4e16]">
+              <p className="mt-5 font-serif text-sm font-bold text-[#9a4e16]">
                 COMPLIMENTARY
               </p>
             </div>
@@ -385,7 +412,7 @@ export default function TradeSpecifier() {
                   STEP 01 / SPECIMEN MATRIX
                 </p>
 
-                <h2 className="mt-3 font-serif text-3xl md:text-[36px]">
+                <h2 className="mt-3 font-serif text-xl md:text-[28px]">
                   SELECT HIGH-PRECISION SLABS
                 </h2>
 
@@ -401,7 +428,7 @@ export default function TradeSpecifier() {
               </div>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-2">
+            <div className="mt-7 flex flex-wrap gap-1">
               {[
                 "ALL MINERALS (8)",
                 "SEDIMENTARY & CEPPO",
@@ -410,7 +437,7 @@ export default function TradeSpecifier() {
               ].map((filter, index) => (
                 <button
                   key={filter}
-                  className={`px-4 py-2 text-[10px] font-bold tracking-[0.08em] ${
+                  className={`px-4 py-2 text-[15px] font-bold tracking-[0.08em] ${
                     index === 0
                       ? "bg-black text-white"
                       : "bg-[#ebe8e1] text-[#292824]"
@@ -441,12 +468,12 @@ export default function TradeSpecifier() {
                   CURATION TRAY
                 </p>
 
-                <h2 className="mt-1 font-serif text-2xl font-bold">
+                <h2 className="mt-1 font-serif text-lg font-bold">
                   MONOLITHIC SPECIMEN BOX
                 </h2>
               </div>
 
-              <div className="bg-black px-3 py-3 text-[10px] font-bold text-white">
+              <div className="bg-black px-3 py-3 text-[9px] font-bold text-white">
                 BOX NO. AT-2025-
                 <br />
                 X
@@ -642,7 +669,7 @@ export default function TradeSpecifier() {
 
             <div className="mt-5 flex flex-col justify-between gap-5 border border-[#dedbd2] bg-[#f6f3eb] p-6 md:flex-row md:items-center">
               <div className="flex items-center gap-5">
-                <span className="text-3xl text-[#9a4e16]">▣</span>
+                <span className="text-3xl text-[#9a4e16]"> 🚐 </span>
 
                 <div>
                   <h4 className="font-serif text-xl font-bold">
@@ -669,12 +696,12 @@ export default function TradeSpecifier() {
       </section>
 
       {/* GLOBAL STUDIOS */}
-      <section className="border-t border-[#dedbd2] px-6 py-16 md:px-[7%] md:py-20">
+      <section className="border-t border-[#dedbd2] bg-[#fcf9f2] px-6 py-16 md:px-[6.7%] md:py-20">
         <div className="flex flex-col justify-between gap-5 border-b border-[#dedbd2] pb-5 md:flex-row md:items-end">
           <div>
             <SectionLabel>PHYSICAL MATERIAL LIBRARIES</SectionLabel>
 
-            <h2 className="font-serif text-[40px] leading-tight md:text-[50px]">
+            <h2 className="font-serif text-[40px] leading-tight md:text-[30px]">
               GLOBAL ATELIER STUDIOS & SPEC LABS
             </h2>
           </div>
@@ -694,8 +721,9 @@ export default function TradeSpecifier() {
             >
               <div className="relative">
                 <ImagePlaceholder
-                  variant={studio.image}
-                  className="h-[280px] w-full"
+                  src={studio.image}
+                    alt={studio.city}
+                  className="h-[280px] w-full"  
                 />
 
                 <span className="absolute left-3 top-3 bg-white px-3 py-2 text-[10px] font-bold tracking-[0.08em]">
@@ -738,24 +766,60 @@ export default function TradeSpecifier() {
       </section>
 
       {/* CONSULTATION STRIP */}
-      <section className="flex flex-col justify-between gap-5 bg-[#e5e2da] px-6 py-8 md:flex-row md:items-center md:px-[7%]">
-        <div>
-          <h2 className="font-serif text-2xl font-bold">
-            DIRECT STRUCTURAL & ENGINEERING CONSULTATION
-          </h2>
+      {/* =========================
+    CONSULTATION STRIP
+========================= */}
+<section className="bg-[#e5e2db] px-6 py-[28px] md:px-[7%]">
 
-          <p className="mt-1 text-sm text-[#55534e]">
-            Require slip test certifications (DIN 51130 / ASTM C1028), bespoke
-            CNC bevel blueprints, or seismic anchoring details?
-          </p>
-        </div>
+  <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
 
-        <button className="bg-black px-7 py-4 text-[10px] font-bold tracking-[0.12em] text-white">
-          DIRECT SPECIFIER HOTLINE
-        </button>
-      </section>
+    <div className="flex items-center gap-4">
 
-      <Footer />
+      {/* HEADPHONE ICON */}
+      <div className="flex h-[32px] w-[32px] flex-none items-center justify-center text-[#a85b20]">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M4 14v-2a8 8 0 0 1 16 0v2" />
+          <path d="M4 14h3v5H5a1 1 0 0 1-1-1v-4Z" />
+          <path d="M20 14h-3v5h2a1 1 0 0 0 1-1v-4Z" />
+          <path d="M20 18c0 2-1.5 3-4 3" />
+        </svg>
+      </div>
+
+      <div>
+
+        <h2 className="font-serif text-[21px] font-bold leading-[1.05]">
+          DIRECT STRUCTURAL & ENGINEERING CONSULTATION
+        </h2>
+
+        <p className="mt-[6px] text-[12px] leading-5 text-[#55534e]">
+          Require slip test certifications (DIN 51130 / ASTM C1028), bespoke
+          CNC bevel blueprints, or seismic anchoring details?
+        </p>
+
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      className="flex h-[34px] items-center justify-center bg-black px-[20px] text-[9px] font-bold tracking-[0.13em] text-white"
+    >
+      DIRECT SPECIFIER HOTLINE
+    </button>
+
+  </div>
+
+</section>
+      
     </div>
   );
 }
