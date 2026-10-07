@@ -291,7 +291,7 @@ function SpatialApplicationMatrix() {
 
   ]
   return(
-    <div className="grid gap-6 lg:grid-cols-[464px_1fr]">
+<div className="grid gap-8 lg:grid-cols-[minmax(0,464px)_minmax(0,1fr)] lg:gap-6">
       <div className="flex flex-col">
 
         {/* HEADER */}
@@ -301,7 +301,7 @@ function SpatialApplicationMatrix() {
             INTERACTIVE SPEC VISUALIZER
           </SectionLabel>
 
-          <h2 className="max-w-[440px] font-serif text-[38px] leading-[1.02] tracking-[-0.035em] sm:text-[40px]">
+          <h2 className="max-w-[440px] font-serif text-[32px] leading-[1.02] tracking-[-0.035em] sm:text-[38px] md:text-[40px]">
             SPATIAL APPLICATION
             <br />
             MATRIX
@@ -447,7 +447,7 @@ function SpatialApplicationMatrix() {
 
 
         {/* BOTTOM ACTIONS */}
-        <div className="mt-7 flex items-center justify-between gap-4">
+        <div className="mt-7 flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center">
 
           <button
             type="button"
@@ -469,10 +469,10 @@ function SpatialApplicationMatrix() {
           </button>
 
 
-          <button
-            type="button"
-            className="flex h-[47px] min-w-[151px] items-center justify-center gap-3 bg-[#ebe7de] px-4 font-serif text-[9px] font-semibold tracking-[0.12em] transition-colors hover:bg-[#dedad1]"
-          >
+     <button
+  type="button"
+  className="flex h-[47px] w-full items-center justify-center gap-3 bg-[#ebe7de] px-4 font-serif text-[9px] font-semibold tracking-[0.12em] transition-colors hover:bg-[#dedad1] sm:w-[151px]"
+>
             <span className="text-[14px]">
               ↓
             </span>
@@ -493,7 +493,7 @@ function SpatialApplicationMatrix() {
           RIGHT IMAGE
       ================================================= */}
 
-      <div className="relative min-h-[500px] overflow-hidden bg-[#d8d2c7]">
+      <div className="relative h-[380px] overflow-hidden bg-[#d8d2c7] sm:h-[440px] lg:h-[500px]">
 
         <img
           src={active.image}
@@ -506,7 +506,7 @@ function SpatialApplicationMatrix() {
 
 
         {/* IMAGE OVERLAY */}
-        <div className="absolute bottom-4 left-4 right-4 bg-[#f5f2ea] px-4 py-4 sm:px-5">
+        <div className="absolute bottom-3 left-3 right-3 bg-[#f5f2ea] px-4 py-4 sm:bottom-4 sm:left-4 sm:right-4 sm:px-5">
 
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 
@@ -567,13 +567,13 @@ function SpatialApplicationMatrix() {
 export default function Home() {
 
   return (
-    <main className="bg-[#f5f2ea]">
+   <main className="w-full overflow-x-hidden bg-[#f5f2ea]">
 
       {/* =====================================================
           HERO
       ===================================================== */}
-
-      <section className="mx-auto max-w-[1185px] px-6 pb-14 pt-16 sm:px-8 lg:px-0 lg:pt-20">
+<section className="mx-auto w-full max-w-[1185px] px-4 pb-12 pt-12 sm:px-6 sm:pb-14 sm:pt-16 md:px-8 lg:px-0 lg:pt-20">
+      
 
         <div className="grid items-start gap-8 lg:grid-cols-[1.05fr_0.95fr]">
 
@@ -583,8 +583,8 @@ export default function Home() {
             <SectionLabel>
               ARCHITECTURAL MINERAL ARCHIVE • EDITION 25/26
             </SectionLabel>
-
-            <h1 className="max-w-[560px] font-serif text-[48px] leading-[0.96] tracking-[-0.045em] sm:text-[56px] lg:text-[62px]">
+<h1 className="max-w-[560px] font-serif text-[40px] leading-[0.96] tracking-[-0.045em] sm:text-[50px] md:text-[56px] lg:text-[62px]">
+            
               SURFACES AS
               <br />
               PURE
@@ -598,12 +598,12 @@ export default function Home() {
               monnumental residential and hospitality interiors..
             </p>
 
-            <div className="mt-7 flex flex-nowrap items-center gap-3 overflow-visible">
+            <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
 
-              <button
-                type="button"
-                className="flex h-[48px] w-[245px] flex-none items-center justify-center whitespace-nowrap bg-black px-5 text-[10px] font-semibold tracking-[0.08em] text-white transition-all duration-300 hover:bg-[#96501f]"
-              >
+           <button
+  type="button"
+  className="flex h-[48px] w-full items-center justify-center bg-black px-5 text-[10px] font-semibold tracking-[0.08em] text-white transition-all duration-300 hover:bg-[#96501f] sm:w-[245px]"
+>
                 <span>
                   EXPLORE 2025/2026 ARCHIVE
                 </span>
@@ -613,10 +613,10 @@ export default function Home() {
                 </span>
               </button>
 
-              <button
-                type="button"
-                className="flex h-[50px] flex-none items-center justify-center whitespace-nowrap bg-material px-7 text-[11px] tracking-[0.06em] text-text-primary transition-all duration-300 hover:bg-secondary"
-              >
+             <button
+  type="button"
+  className="flex h-[50px] w-full items-center justify-center whitespace-nowrap bg-material px-5 text-[10px] tracking-[0.06em] text-text-primary transition-all duration-300 hover:bg-secondary sm:w-auto sm:px-7 sm:text-[11px]"
+>
                 <span className="mr-2">
                   ▣
                 </span>
@@ -626,7 +626,7 @@ export default function Home() {
 
             </div>
 
-            <div className="mt-8 bg-[#f1eee6] px-4 py-4 sm:px-5">
+        <div className="mt-8 w-full bg-[#f1eee6] px-4 py-4 sm:px-5">
 
               <div className="grid grid-cols-2">
 
@@ -675,7 +675,7 @@ export default function Home() {
             <ImagePlaceholder
               src="/images/home-hero.jpg"
               alt="Architectural mineral surface interior"
-              className="aspect-[1.08/1.15] w-full"
+               className="aspect-[0.95/1] w-full sm:aspect-[1.08/1.15]"
             />
 
             <div className="absolute bottom-4 left-4 right-4 bg-[#f5f2ea] px-5 py-4 shadow-sm">
@@ -743,15 +743,15 @@ export default function Home() {
                 {item.label}
               </div>
 
-              <div className="mt-4 font-serif text-[48px] leading-none">
+             <div className="mt-4 font-serif text-[36px] leading-none sm:text-[42px] md:text-[45px] lg:text-[48px]">
                 {item.value}
               </div>
 
-              <h3 className="mt-5 font-sans text-[16px] font-semibold">
+              <h3 className="mt-5 font-sans text-[14px] font-semibold sm:text-[15px] lg:text-[16px]">
                 {item.title}
               </h3>
 
-              <p className="mt-2 text-[12px] leading-6 text-[#bbb7ae]">
+<p className="mt-2 text-[11px] leading-5 text-[#bbb7ae] sm:text-[12px] sm:leading-6">
                 {item.text}
               </p>
 
@@ -767,7 +767,7 @@ export default function Home() {
           MATERIAL LINEAGE ARCHIVE
       ===================================================== */}
 
-      <section className="mx-auto max-w-[1185px] px-6 pb-20 pt-16 lg:px-0">
+      <section className="mx-auto w-full max-w-[1185px] px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-0">
 
         {/* SECTION HEADER */}
         <div className="grid items-end gap-8 border-b border-[#d5d0c5] pb-7 lg:grid-cols-[1.15fr_0.85fr]">
@@ -778,7 +778,7 @@ export default function Home() {
               CURATED SPECIMEN SERIES
             </SectionLabel>
 
-            <h2 className="font-serif text-[42px] leading-[0.98] tracking-[-0.035em] sm:text-[48px] lg:text-[52px]">
+<h2 className="font-serif text-[34px] leading-[0.98] tracking-[-0.035em] sm:text-[42px] md:text-[48px] lg:text-[52px]">
               MATERIAL LINEAGE ARCHIVE
             </h2>
 
@@ -812,9 +812,9 @@ export default function Home() {
           SPATIAL APPLICATION MATRIX
       ===================================================== */}
 
-      <section className="bg-[#f5f2ea] py-0">
+      <section className="w-full bg-[#f5f2ea] py-0">
 
-        <div className="mx-auto max-w-[1185px] bg-[#fffefa] px-7 py-6 sm:px-8 lg:px-7 lg:py-6">
+        <div className="mx-auto w-full max-w-[1185px] bg-[#fffefa] px-4 py-5 sm:px-6 sm:py-6 md:px-7 lg:px-7 lg:py-6">
 
          {  /*   <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
 
@@ -891,9 +891,9 @@ export default function Home() {
 
 <section className="bg-[#f5f2ea]">
 
-  <div className="mx-auto max-w-[1185px] px-6 py-16 lg:px-0">
+  <div className="mx-auto w-full max-w-[1185px] px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:px-0">
 
-    <div className="grid gap-8 lg:grid-cols-[480px_1fr]">
+    <div className="grid gap-8 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
 
       {/* =================================================
           LEFT — ENGINEERING COMPARISON
@@ -905,7 +905,7 @@ export default function Home() {
           ENGINEERING COMPARISON
         </SectionLabel>
 
-        <h2 className="max-w-[470px] font-serif text-[40px] leading-[1.03] tracking-[-0.04em] sm:text-[44px]">
+      <h2 className="max-w-[470px] font-serif text-[32px] leading-[1.03] tracking-[-0.04em] sm:text-[40px] md:text-[44px]">
           MINERAL PORCELIAN VS.
           <br />
           QUARRIED BLOCK
@@ -1022,8 +1022,7 @@ export default function Home() {
           RIGHT — LAB CERTIFIED PANEL
       ================================================= */}
 
-      <div className="w-full bg-[#fffefa] px-7 py-7">
-
+      <div className="w-full bg-[#fffefa] px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7">
         {/* PANEL HEADER */}
         <div className="flex items-center justify-between gap-4">
 
@@ -1176,7 +1175,7 @@ export default function Home() {
       
       {/*  ARCHITECTURAL VERIFICATION */}
       <section className="bg-[#f5f2ea]">
-        <div className="mx-auto max-w-[1185px] px-6 py-20 lg:px-0">
+        <div className="mx-auto w-full max-w-[1185px] px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-0">
           <div className="flex items-center justify-center gap-2">
 
       <span className="font-serif text-[10px] font-semibold text-[#995021]">
@@ -1191,7 +1190,7 @@ export default function Home() {
 
     </div>
     {/*   QUOTE session */}
- <blockquote className="mx-auto mt-7 max-w-[960px] text-center font-serif text-[30px] italic leading-[1.7] tracking-[-0.02em] text-[#292722] sm:text-[34px] lg:text-[37px]">
+ <blockquote className="mx-auto mt-7 max-w-[960px] text-center font-serif text-[22px] italic leading-[1.55] tracking-[-0.02em] text-[#292722] sm:text-[28px] md:text-[34px] lg:text-[37px]">
 
       “Atelier Surfaces provides our studio with the elusive union of
       <br className="hidden lg:block" />
@@ -1269,24 +1268,24 @@ export default function Home() {
 
   <div className="mx-auto max-w-[1185px]">
 
-    <div className="h-[240px] bg-[#050505] px-[48px]">
+    <div className="min-h-[240px] bg-[#050505] px-5 py-7 sm:px-7 sm:py-8 lg:h-[240px] lg:px-[48px] lg:py-0">
 
-      <div className="grid h-full grid-cols-[650px_388px] items-start gap-[50px]">
+  <div className="grid h-full grid-cols-1 items-center gap-7 lg:grid-cols-[minmax(0,650px)_minmax(320px,388px)] lg:gap-[50px]">
 
         {/* LEFT CONTENT */}
-        <div className="pt-[25px]">
+        <div className="pt-0 lg:pt-[25px]">
 
           <div className="font-serif text-[9px] font-semibold uppercase tracking-[0.16em] text-[#d09a70]">
             EXPRESS TRADE SERVICE
           </div>
 
-          <h2 className="mt-[10px] font-serif text-[38px] leading-[1.06] tracking-[-0.035em] text-[#f5f2ea]">
+          <h2 className="mt-[10px] font-serif text-[28px] leading-[1.08] tracking-[-0.035em] text-[#f5f2ea] sm:text-[34px] lg:text-[38px]">
             ORDER CUSTOM ARCHITECT'S
             <br />
             MINERAL SPEC BOX
           </h2>
 
-          <p className="mt-[13px] max-w-[690px] text-[12px] leading-[1.8] text-[#c7c4bd]">
+          <p className="mt-[13px] max-w-[690px] text-[11px] leading-[1.7] text-[#c7c4bd] sm:text-[12px] sm:leading-[1.8]">
             Receive a curated timber dossier containing four calibrated
             100×200mm mineral specimens, continuous grout chips, technical
             slip friction certificates, and high-res normal texture USB keys.
@@ -1296,13 +1295,13 @@ export default function Home() {
 
 
         {/* RIGHT BUTTONS */}
-        <div className="flex h-full items-center justify-end gap-[16px]">
+        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:h-full lg:items-center lg:justify-end lg:gap-[16px]">
 
           {/* REQUEST SAMPLE KIT */}
-          <button
-            type="button"
-            className="flex h-[65px] w-[179px] shrink-0 items-center justify-center bg-[#9a511f] text-center transition-colors hover:bg-[#ad612c]"
-          >
+         <button
+  type="button"
+  className="flex h-[65px] w-full items-center justify-center bg-[#9a511f] text-center transition-colors hover:bg-[#ad612c] sm:w-full lg:w-[179px]"
+>
             <span className="font-serif text-[9px] font-semibold uppercase leading-[1.45] tracking-[0.12em] text-white">
               REQUEST
               <br />
@@ -1312,10 +1311,10 @@ export default function Home() {
 
 
           {/* DOWNLOAD MASTER CATALOG */}
-          <button
-            type="button"
-            className="flex h-[65px] w-[193px] shrink-0 items-center justify-center bg-[#1d2022] text-center transition-colors hover:bg-[#272a2c]"
-          >
+         <button
+  type="button"
+  className="flex h-[65px] w-full items-center justify-center bg-[#1d2022] text-center transition-colors hover:bg-[#272a2c] sm:w-full lg:w-[193px]"
+>
             <span className="font-serif text-[9px] font-semibold uppercase leading-[1.45] tracking-[0.1em] text-white">
               DOWNLOAD MASTER
               <br />
@@ -1347,13 +1346,9 @@ export default function Home() {
 
           <div className="mx-auto flex max-w-[1450px] flex-col justify-between gap-3 px-6 py-5 text-[7px] uppercase tracking-[0.13em] text-[#77736b] md:flex-row lg:px-10">
 
-            <span>
-             
-            </span>
+           
 
-            <span>
-              
-            </span>
+      
 
           </div>
 
