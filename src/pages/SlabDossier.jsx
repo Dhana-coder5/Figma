@@ -73,7 +73,7 @@ export default function SlabDossier() {
         <div className="mx-auto flex max-w-[1400px] flex-col justify-between gap-3 md:flex-row md:items-center">
           <div className="font-serif text-[10px] uppercase tracking-[0.09em] text-black/60">
             ARCHIVE / PORCELAIN SLABS /{" "}
-            <span className="font-bold text-black">
+            <span className="font-small text-black">
               CEPPO DI GRÉ BRECCIA
             </span>{" "}
             /{" "}
@@ -102,7 +102,7 @@ export default function SlabDossier() {
                 </span>
               </div>
 
-              <h1 className="font-serif text-[48px] leading-[0.92] tracking-[-0.045em] md:text-[64px] lg:text-[66px]">
+              <h1 className="font-serif text-[48px] leading-[0.92] tracking-[-0.045em] md:text-[64px] lg:text-[55px]">
                 CEPPO DI GRÉ BRECCIA
               </h1>
 
@@ -148,16 +148,19 @@ export default function SlabDossier() {
 
             {/* CONFIGURATOR */}
             <div className="border border-black/[0.07] bg-white/60 p-8 md:p-10">
-              <div className="mb-9">
-                <div className="font-serif text-[10px] font-bold uppercase tracking-[0.27em] text-[#a45b34]">
-                  Project Configurator
-                </div>
-
-                <div className="mt-2 font-serif text-[10px] uppercase tracking-[0.08em] text-black/60">
-                  Commercial & Residential
-                  <br />
-                  High-Traffic
-                </div>
+<div className="flex flex-col gap-4 border border-black/[0.07] bg-white/60 p-8 sm:flex-row sm:items-start sm:justify-between md:p-10">
+                 <div className="font-serif text-[10px] font-bold uppercase tracking-[0.27em] text-[#a45b34]">
+      Project
+      <br />
+      Configurator
+    </div>
+                 <div className="sm:text-right">
+    <div className="font-serif text-[10px] uppercase tracking-[0.08em] text-black/60">
+      Commercial & Residential
+      <br />
+      High-Traffic
+    </div>
+  </div>
               </div>
 
               <div className="border-t border-black/10 pt-7">
