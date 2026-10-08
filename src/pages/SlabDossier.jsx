@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function ImagePlaceholder({ className = "" }) {
   return (
@@ -26,7 +27,7 @@ function ImagePlaceholder({ className = "" }) {
 
       <div className="absolute left-4 top-4 border border-black/10 bg-[#f7f3eb]/90 px-4 py-2">
         <span className="text-[9px] font-semibold tracking-[0.16em]">
-          ◉ 1:1 TEXTURE LOUPE ACTIVE
+         {/* ◉ 1:1 TEXTURE LOUPE ACTIVE  */ }
         </span>
       </div>
 
@@ -66,6 +67,7 @@ function Metric({ value, label }) {
 }
 
 export default function SlabDossier() {
+    const [lighting, setLighting] = useState("GALLERY NEUTRAL");
   return (
     <main className="bg-[#f5f2ea] text-[#27251f]">
       {/* ARCHIVE BAR */}
@@ -137,31 +139,45 @@ export default function SlabDossier() {
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[1.45fr_0.9fr]">
             {/* IMAGE */}
-            <div>
-              <ImagePlaceholder className="aspect-[1.48/1] w-full" />
+           <div className="relative aspect-[1.48/1] w-full overflow-hidden">
+  <img
+    src="/images/slab-main.jpg"
+    alt="Ceppo di Gré Breccia slab surface"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
 
-              <div className="mt-4 flex justify-between font-serif text-[9px] uppercase tracking-[0.15em] text-black/40">
-                <span>AT-CPG-902 / SURFACE STUDY</span>
-                <span>ORIGINAL SCALE / 1:1</span>
-              </div>
-            </div>
+  <div className="absolute left-4 top-4 border border-black/10 bg-[#f7f3eb]/90 px-4 py-2">
+    <span className="text-[9px] font-semibold tracking-[0.16em]">
+    ◉ 1:1 TEXTURE LOUPE ACTIVE   
+    </span>
+  </div>
+
+ { /* <div className="absolute inset-x-4 bottom-4 flex items-center justify-between bg-[#25241f]/90 px-5 py-3 text-[9px] uppercase tracking-[0.15em] text-white">
+    <span>SLAB RATIO // 1600 × 3200 MM</span>
+    <span className="text-white/60">NOMINAL COVERAGE: 5.12 M²</span>
+    <span>CALIBER 09</span>
+  </div>  */}
+</div>  
 
             {/* CONFIGURATOR */}
-            <div className="border border-black/[0.07] bg-white/60 p-8 md:p-10">
-<div className="flex flex-col gap-4 border border-black/[0.07] bg-white/60 p-8 sm:flex-row sm:items-start sm:justify-between md:p-10">
-                 <div className="font-serif text-[10px] font-bold uppercase tracking-[0.27em] text-[#a45b34]">
+          <div className="border border-black/[0.07] bg-white/60 p-8 md:p-10">
+
+  <div className="flex items-start justify-between border-b border-black/10 pb-4">
+
+    {/* LEFT */}
+    <div className="font-serif text-[10px] font-bold uppercase tracking-[0.27em] text-[#a45b34]">
       Project
       <br />
       Configurator
     </div>
-                 <div className="sm:text-right">
-    <div className="font-serif text-[10px] uppercase tracking-[0.08em] text-black/60">
+
+    {/* RIGHT */}
+    <div className="text-right font-serif text-[10px] uppercase tracking-[0.08em] text-black/60">
       Commercial & Residential
-      <br />
-      High-Traffic
+      <br /> High-Traffic
     </div>
-  </div>
-              </div>
+
+  </div>    
 
               <div className="border-t border-black/10 pt-7">
                 <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
@@ -174,7 +190,7 @@ export default function SlabDossier() {
                     className="border border-black/20 bg-[#f5f2ea] px-4 py-4 text-left"
                   >
                     <div className="font-serif text-sm font-bold">
-                      1600 × 3200
+                      1600 × 3200 MM
                     </div>
                     <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
                       6 MM
@@ -238,6 +254,79 @@ export default function SlabDossier() {
         </div>
       </section>
 
+      {/* =========================
+    VISUAL REFERENCE STUDIES
+========================= */}
+{/* =========================
+    AMBIENT LIGHTING TEMPERATURE SIMULATOR
+========================= */}
+<section className="px-6 pb-7 md:px-12 lg:px-[7%]">
+  <div className="mx-auto max-w-[1400px]">
+
+    <div className="border border-black/[0.05] bg-[#f0eee7] px-5 py-7 sm:px-7 md:px-8">
+
+      {/* HEADER */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+        <div className="font-serif text-[10px] font-bold uppercase tracking-[0.20em] text-[#2d2b26]">
+          AMBIENT LIGHTING TEMPERATURE SIMULATOR
+        </div>
+
+        <div className="font-serif text-[10px] font-semibold uppercase tracking-[0.12em] text-[#a45b34]">
+          {lighting === "MORNING SUN"
+            ? "5000K GALLERY DAYLIGHT"
+            : lighting === "WARM LED"
+            ? "2700K WARM LED"
+            : "4000K GALLERY NEUTRAL"}
+        </div>
+
+      </div>
+
+      {/* LIGHTING OPTIONS */}
+      <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-3">
+
+        <button
+          type="button"
+          onClick={() => setLighting("MORNING SUN")}
+          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
+            lighting === "MORNING SUN"
+              ? "border-black bg-black text-white"
+              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+          }`}
+        >
+          MORNING SUN (5000K)
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setLighting("GALLERY NEUTRAL")}
+          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
+            lighting === "GALLERY NEUTRAL"
+              ? "border-black bg-black text-white"
+              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+          }`}
+        >
+          GALLERY NEUTRAL (4000K)
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setLighting("WARM LED")}
+          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
+            lighting === "WARM LED"
+              ? "border-black bg-black text-white"
+              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+          }`}
+        >
+          WARM LED (2700K)
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
       {/* TECHNICAL STRIP */}
       <section className="border-y border-black/10 bg-[#ebe7dd] px-6 md:px-12 lg:px-[7%]">
         <div className="mx-auto grid max-w-[1400px] grid-cols-2 md:grid-cols-4">
