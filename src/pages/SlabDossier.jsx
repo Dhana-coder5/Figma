@@ -68,6 +68,8 @@ function Metric({ value, label }) {
 
 export default function SlabDossier() {
     const [lighting, setLighting] = useState("GALLERY NEUTRAL");
+    const [jointWidth, setJointWidth] = useState("3 MM");
+const [mortarTone, setMortarTone] = useState("WARM GREY");
   return (
     <main className="bg-[#f5f2ea] text-[#27251f]">
       {/* ARCHIVE BAR */}
@@ -134,199 +136,560 @@ export default function SlabDossier() {
         </div>
       </section>
 
-      {/* MAIN MATERIAL AREA */}
-      <section className="px-6 py-12 md:px-12 lg:px-[7%] lg:py-12">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid gap-12 lg:grid-cols-[1.45fr_0.9fr]">
-            {/* IMAGE */}
-           <div className="relative aspect-[1.48/1] w-full overflow-hidden">
-  <img
-    src="/images/slab-main.jpg"
-    alt="Ceppo di Gré Breccia slab surface"
-    className="absolute inset-0 h-full w-full object-cover object-center"
-  />
+    {/* =========================================================
+    MAIN MATERIAL AREA
+    Desktop reference geometry:
+    Left  = 669px
+    Gap   = 98px
+    Right = 367px
+    ========================================================= */}
 
-  <div className="absolute left-4 top-4 border border-black/10 bg-[#f7f3eb]/90 px-4 py-2">
-    <span className="text-[9px] font-semibold tracking-[0.16em]">
-    ◉ 1:1 TEXTURE LOUPE ACTIVE   
-    </span>
-  </div>
+<section className="px-6 py-8 md:px-12 lg:py-12 min-[1280px]:px-0 min-[1280px]:ml-[6.67vw]">
+  <div
+    className="
+      grid grid-cols-1
+      gap-8
+      md:gap-10
+      min-[1024px]:grid-cols-[minmax(0,1fr)_minmax(330px,0.55fr)]
+      min-[1280px]:grid-cols-[669px_367px]
+      min-[1280px]:gap-[98px]
+    "
+  >
 
- { /* <div className="absolute inset-x-4 bottom-4 flex items-center justify-between bg-[#25241f]/90 px-5 py-3 text-[9px] uppercase tracking-[0.15em] text-white">
-    <span>SLAB RATIO // 1600 × 3200 MM</span>
-    <span className="text-white/60">NOMINAL COVERAGE: 5.12 M²</span>
-    <span>CALIBER 09</span>
-  </div>  */}
-</div>  
+    {/* =====================================================
+        LEFT COLUMN
+        ===================================================== */}
+    <div className="min-w-0">
 
-            {/* CONFIGURATOR */}
-          <div className="border border-black/[0.07] bg-white/60 p-8 md:p-10">
+      {/* MAIN SLAB IMAGE */}
+      <div className="relative aspect-[669/404] w-full overflow-hidden">
+        <img
+          src="/images/slab-main.jpg"
+          alt="Ceppo di Gré Breccia slab surface"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      </div>
 
-  <div className="flex items-start justify-between border-b border-black/10 pb-4">
 
-    {/* LEFT */}
-    <div className="font-serif text-[10px] font-bold uppercase tracking-[0.27em] text-[#a45b34]">
-      Project
-      <br />
-      Configurator
-    </div>
+      {/* ===================================================
+          AMBIENT LIGHTING TEMPERATURE SIMULATOR
+          =================================================== */}
+      <div
+        className="
+          mt-7
+          border border-black/[0.05]
+          bg-[#f0eee7]
+          px-5 py-6
+          sm:px-7 sm:py-7
+          min-[1280px]:h-[140px]
+          min-[1280px]:px-[29px]
+          min-[1280px]:py-[28px]
+        "
+      >
 
-    {/* RIGHT */}
-    <div className="text-right font-serif text-[10px] uppercase tracking-[0.08em] text-black/60">
-      Commercial & Residential
-      <br /> High-Traffic
-    </div>
+        {/* HEADER */}
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="font-serif text-[10px] font-bold uppercase tracking-[0.20em] text-[#2d2b26]">
+            AMBIENT LIGHTING TEMPERATURE SIMULATOR
+          </div>
 
-  </div>    
+          <div className="font-serif text-[10px] font-semibold uppercase tracking-[0.12em] text-[#a45b34]">
+            {lighting === "MORNING SUN"
+              ? "5000K GALLERY DAYLIGHT"
+              : lighting === "WARM LED"
+              ? "2700K WARM LED"
+              : "4000K GALLERY NEUTRAL"}
+          </div>
+        </div>
 
-              <div className="border-t border-black/10 pt-7">
-                <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
-                  Nominal Slab Format & Thickness
-                </div>
 
-                <div className="mt-5 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    className="border border-black/20 bg-[#f5f2ea] px-4 py-4 text-left"
-                  >
-                    <div className="font-serif text-sm font-bold">
-                      1600 × 3200 MM
-                    </div>
-                    <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
-                      6 MM
-                    </div>
-                  </button>
+        {/* LIGHTING BUTTONS */}
+        <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-3">
 
-                  <button
-                    type="button"
-                    className="border border-black/20 bg-[#f5f2ea] px-4 py-4 text-left"
-                  >
-                    <div className="font-serif text-sm font-bold">
-                      1600 × 3200
-                    </div>
-                    <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
-                      12 MM
-                    </div>
-                  </button>
-                </div>
-              </div>
+          <button
+            type="button"
+            onClick={() => setLighting("MORNING SUN")}
+            className={`
+              flex h-[53px] items-center justify-center
+              border px-1
+              text-center
+              font-serif text-[7px]
+              uppercase tracking-[0.02em]
+              whitespace-nowrap
+              transition-colors
+              min-[1280px]:text-[9px]
+              ${
+                lighting === "MORNING SUN"
+                  ? "border-black bg-black text-white"
+                  : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+              }
+            `}
+          >
+            MORNING SUN (5000K)
+          </button>
 
-              <div className="mt-8 border-t border-black/10 pt-7">
-                <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
-                  Surface Finish
-                </div>
 
-                <div className="mt-5 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    className="border border-[#a45b34] bg-[#f5f2ea] px-4 py-4 text-left"
-                  >
-                    <div className="font-serif text-sm font-bold">
-                      Satinato
-                    </div>
-                    <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
-                      HONED MATTE
-                    </div>
-                  </button>
+          <button
+            type="button"
+            onClick={() => setLighting("GALLERY NEUTRAL")}
+            className={`
+              flex h-[53px] items-center justify-center
+              border px-1
+              text-center
+              font-serif text-[7px]
+              uppercase tracking-[0.02em]
+              whitespace-nowrap
+              transition-colors
+              min-[1280px]:text-[9px]
+              ${
+                lighting === "GALLERY NEUTRAL"
+                  ? "border-black bg-black text-white"
+                  : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+              }
+            `}
+          >
+            GALLERY NEUTRAL (4000K)
+          </button>
 
-                  <button
-                    type="button"
-                    className="border border-black/15 px-4 py-4 text-left"
-                  >
-                    <div className="font-serif text-sm font-bold">
-                      Naturale
-                    </div>
-                    <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
-                      NATURAL
-                    </div>
-                  </button>
-                </div>
-              </div>
 
-              <button
-                type="button"
-                className="mt-8 w-full bg-[#25241f] px-5 py-4 font-serif text-[10px] font-bold uppercase tracking-[0.2em] text-white transition hover:bg-[#a45b34]"
-              >
-                ADD TO SAMPLE BOX
-              </button>
+          <button
+            type="button"
+            onClick={() => setLighting("WARM LED")}
+            className={`
+              flex h-[53px] items-center justify-center
+              border px-1
+              text-center
+              font-serif text-[7px]
+              uppercase tracking-[0.02em]
+              whitespace-nowrap
+              transition-colors
+              min-[1280px]:text-[9px]
+              ${
+                lighting === "WARM LED"
+                  ? "border-black bg-black text-white"
+                  : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
+              }
+            `}
+          >
+            WARM LED (2700K)
+          </button>
+
+        </div>
+      </div>
+
+
+      {/* ===================================================
+          VISUAL REFERENCE STUDIES
+          =================================================== */}
+      <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
+
+        {/* 01 */}
+        <div className="min-w-0 border border-black/[0.06] bg-white/40 p-2">
+          <img
+            src="/images/macro-loupe.jpg"
+            alt="Macro loupe reference"
+            className="aspect-[1.84/1] w-full object-cover"
+          />
+
+          <div className="px-2 pb-2 pt-3">
+            <div className="font-serif text-[9px] font-bold uppercase tracking-[0.12em]">
+              01. MACRO LOUPE
             </div>
           </div>
         </div>
+
+
+        {/* 02 */}
+        <div className="min-w-0 border border-black/[0.06] bg-white/40 p-2">
+          <img
+            src="/images/monolith.jpg"
+            alt="Monolith slab reference"
+            className="aspect-[1.84/1] w-full object-cover"
+          />
+
+          <div className="px-2 pb-2 pt-3">
+            <div className="font-serif text-[9px] font-bold uppercase tracking-[0.12em]">
+              02. MONOLITH 1600×3200
+            </div>
+          </div>
+        </div>
+
+
+        {/* 03 */}
+        <div className="min-w-0 border border-black/[0.06] bg-white/40 p-2">
+          <img
+            src="/images/milan-application.jpg"
+            alt="Milan application reference"
+            className="aspect-[1.84/1] w-full object-cover"
+          />
+
+          <div className="px-2 pb-2 pt-3">
+            <div className="font-serif text-[9px] font-bold uppercase tracking-[0.12em]">
+              03. MILAN APPLICATION
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    {/* =====================================================
+        RIGHT COLUMN
+        ===================================================== */}
+    <div className="min-w-0">
+
+      {/* ===================================================
+          NOMINAL SLAB FORMAT & THICKNESS
+          =================================================== */}
+      <section>
+        <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
+          NOMINAL SLAB FORMAT & THICKNESS
+        </div>
+
+
+        <div className="mt-5 grid grid-cols-2 gap-2">
+
+          {/* CARD 01 */}
+          <button
+            type="button"
+            className="
+              min-h-[155px]
+              border border-black/[0.08]
+              bg-[#ebe8e0]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-[16px] font-bold leading-[1.05]">
+              1600 × 3200 MM
+            </div>
+
+            <div className="mt-3 font-serif text-[11px] leading-5 text-black/60">
+              12mm Countertop &amp;
+              <br />
+              Cladding
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] font-semibold uppercase leading-5 tracking-[0.10em] text-[#a45b34]">
+              AVAILABLE NOW (42
+              <br />
+              SLABS)
+            </div>
+          </button>
+
+
+          {/* CARD 02 */}
+          <button
+            type="button"
+            className="
+              min-h-[155px]
+              border border-black/[0.08]
+              bg-[#f1eee7]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-[16px] font-bold leading-[1.05]">
+              1200 × 2780 MM
+            </div>
+
+            <div className="mt-3 font-serif text-[11px] leading-5 text-black/60">
+              6mm Ultra-Slim Wall
+              <br />
+              Cladding
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] uppercase tracking-[0.10em] text-black/65">
+              LEAD TIME: 14 DAYS
+            </div>
+          </button>
+
+
+          {/* CARD 03 */}
+          <button
+            type="button"
+            className="
+              min-h-[155px]
+              border border-black/[0.08]
+              bg-[#f1eee7]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-[16px] font-bold leading-[1.05]">
+              1600 × 3200 MM
+            </div>
+
+            <div className="mt-3 font-serif text-[11px] leading-5 text-black/60">
+              20mm Monolithic Paver /
+              <br />
+              Island
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] uppercase leading-5 tracking-[0.10em] text-black/65">
+              IN MILAN ARCHIVE (18
+              <br />
+              SLABS)
+            </div>
+          </button>
+
+
+          {/* CARD 04 */}
+          <button
+            type="button"
+            className="
+              min-h-[155px]
+              border border-black/[0.08]
+              bg-[#f1eee7]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-[16px] font-bold leading-[1.05]">
+              BESPOKE CUT-
+              <br />
+              TO-SIZE
+            </div>
+
+            <div className="mt-3 font-serif text-[11px] leading-5 text-black/60">
+              5-Axis Waterjet
+              <br />
+              Architectural
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] font-semibold uppercase tracking-[0.10em] text-[#a45b34]">
+              STUDIO CONSULTATION
+            </div>
+          </button>
+
+        </div>
       </section>
 
-      {/* =========================
-    VISUAL REFERENCE STUDIES
-========================= */}
-{/* =========================
-    AMBIENT LIGHTING TEMPERATURE SIMULATOR
-========================= */}
-<section className="px-6 pb-7 md:px-12 lg:px-[7%]">
-  <div className="mx-auto max-w-[1400px]">
 
-    <div className="border border-black/[0.05] bg-[#f0eee7] px-5 py-7 sm:px-7 md:px-8">
+      {/* ===================================================
+          BESPOKE EDGE PROFILING
+          =================================================== */}
+      <section className="mt-7">
 
-      {/* HEADER */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center justify-between">
+          <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
+            BESPOKE EDGE PROFILING
+          </div>
 
-        <div className="font-serif text-[10px] font-bold uppercase tracking-[0.20em] text-[#2d2b26]">
-          AMBIENT LIGHTING TEMPERATURE SIMULATOR
+          <div className="font-serif text-[10px] uppercase tracking-[0.08em] text-black/65">
+            CNC PRE-FABRICATION
+          </div>
         </div>
 
-        <div className="font-serif text-[10px] font-semibold uppercase tracking-[0.12em] text-[#a45b34]">
-          {lighting === "MORNING SUN"
-            ? "5000K GALLERY DAYLIGHT"
-            : lighting === "WARM LED"
-            ? "2700K WARM LED"
-            : "4000K GALLERY NEUTRAL"}
+
+        <div className="mt-3 grid max-w-[345px] grid-cols-3 gap-2">
+
+          {/* RECTIFIED */}
+          <button
+            type="button"
+            className="
+              flex
+              min-h-[157px]
+              flex-col
+              items-start
+              border border-black/[0.08]
+              bg-[#ebe8e0]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="mb-3 flex h-[22px] items-center">
+              <div className="h-[16px] w-[20px] border-[2px] border-black" />
+            </div>
+
+            <div className="font-serif text-[9px] font-bold uppercase leading-4 tracking-[0.08em]">
+              RECTIFIED
+              <br />
+              90°
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] leading-5 text-black/55">
+              Sharpened 1mm
+              <br />
+              Arris
+            </div>
+          </button>
+
+
+          {/* MICRO-BEVEL */}
+          <button
+            type="button"
+            className="
+              flex
+              min-h-[157px]
+              flex-col
+              items-start
+              border border-black/[0.08]
+              bg-[#f1eee7]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="mb-3 flex h-[22px] items-center">
+              <div className="h-[16px] w-[24px] rounded-[2px] border-[2px] border-black" />
+            </div>
+
+            <div className="font-serif text-[9px] font-bold uppercase leading-4 tracking-[0.08em]">
+              MICRO-
+              <br />
+              BEVEL
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] leading-5 text-black/55">
+              Chamfer 2mm ×
+              <br />
+              45°
+            </div>
+          </button>
+
+
+          {/* SHARK-NOSE */}
+          <button
+            type="button"
+            className="
+              flex
+              min-h-[157px]
+              flex-col
+              items-start
+              border border-black/[0.08]
+              bg-[#f1eee7]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="mb-3 flex h-[22px] items-center">
+              <div
+                className="
+                  h-0 w-0
+                  border-b-[16px]
+                  border-l-[7px]
+                  border-r-0
+                  border-solid
+                  border-b-black
+                  border-l-transparent
+                "
+              />
+            </div>
+
+            <div className="font-serif text-[9px] font-bold uppercase leading-4 tracking-[0.08em]">
+              SHARK-NOSE
+            </div>
+
+            <div className="mt-3 font-serif text-[9px] leading-5 text-black/55">
+              30° Undercut
+              <br />
+              Floating
+            </div>
+          </button>
+
+        </div>
+      </section>
+
+
+      {/* ===================================================
+          COMPLEMENTARY ARCHITECTURAL SAMPLE
+          =================================================== */}
+      <section className="mt-8 border border-black/[0.05] bg-[#ebe8e0] px-5 py-5">
+
+        <div className="flex items-center gap-2">
+          <span className="text-[#a45b34]">♢</span>
+
+          <div className="font-serif text-[10px] font-bold uppercase tracking-[0.10em]">
+            COMPLEMENTARY ARCHITECTURAL SAMPLE KIT
+          </div>
         </div>
 
-      </div>
+        <p className="mt-3 max-w-[300px] font-serif text-[10px] leading-5 text-black/55">
+          Includes Calibrated 150 X 150 MM tactile field tile, technical dpssoer booklet, and cpmparative grout 
+          sticls, Dispatched express via DHL from Clerkenwell Hub.
+        </p>
 
-      {/* LIGHTING OPTIONS */}
-      <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-3">
+      </section>
+
+
+      {/* ===================================================
+          SURFACE FINISH
+          Kept below the reference-visible area so the
+          desktop screenshot matches the Figma hierarchy.
+          =================================================== */}
+      <section className="mt-8 border-t border-black/10 pt-7">
+
+        <div className="font-serif text-[10px] font-bold uppercase tracking-[0.08em]">
+          SURFACE RIBA / AIA NUMBER    PROJECT DESTINATION 
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 gap-2">
+
+          <button
+            type="button"
+            className="
+              border border-[#a45b34]
+              bg-[#f5f2ea]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-sm font-bold">
+              RIBA-882910-LON
+            </div>
+
+            <div className="mt-1 text-[8px] uppercase tracking-[0.15em] text-black/40">
+            
+            </div>
+          </button>
+
+          <button
+            type="button"
+            className="
+              border border-black/15
+              bg-[#f5f2ea]
+              px-4 py-4
+              text-left
+            "
+          >
+            <div className="font-serif text-sm font-bold">
+              Kensington Residence PH
+            </div>
+
+            
+          </button>
+
+        </div>
+
 
         <button
           type="button"
-          onClick={() => setLighting("MORNING SUN")}
-          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
-            lighting === "MORNING SUN"
-              ? "border-black bg-black text-white"
-              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
-          }`}
+          className="
+            mt-8
+            w-full
+            bg-[#25241f]
+            px-5 py-4
+            font-serif text-[10px]
+            font-bold
+            uppercase
+            tracking-[0.2em]
+            text-white
+            transition
+            hover:bg-[#a45b34]
+          "
         >
-          MORNING SUN (5000K)
+          ADD TO SAMPLE BOX
         </button>
 
-        <button
-          type="button"
-          onClick={() => setLighting("GALLERY NEUTRAL")}
-          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
-            lighting === "GALLERY NEUTRAL"
-              ? "border-black bg-black text-white"
-              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
-          }`}
-        >
-          GALLERY NEUTRAL (4000K)
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setLighting("WARM LED")}
-          className={`flex min-h-[52px] items-center justify-center border px-4 py-3 text-center font-serif text-[9px] uppercase tracking-[0.08em] transition-colors ${
-            lighting === "WARM LED"
-              ? "border-black bg-black text-white"
-              : "border-black/[0.04] bg-[#e8e4dc] text-[#3f3c36] hover:bg-[#ddd9d0]"
-          }`}
-        >
-          WARM LED (2700K)
-        </button>
-
-      </div>
+      </section>
 
     </div>
 
   </div>
 </section>
+
       {/* TECHNICAL STRIP */}
       <section className="border-y border-black/10 bg-[#ebe7dd] px-6 md:px-12 lg:px-[7%]">
         <div className="mx-auto grid max-w-[1400px] grid-cols-2 md:grid-cols-4">
@@ -502,9 +865,6 @@ export default function SlabDossier() {
           </Link>
         </div>
       </section>
-
-     
-      
     </main>
   );
 }
